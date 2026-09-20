@@ -24,8 +24,7 @@ import re
 HERE = pathlib.Path(__file__).parent
 
 # Edit these two if you move the site to your own domain.
-# GitHub Pages serves the repo "portfolio" from a subpath, not the domain root.
-SITE_URL = "https://ukroy07.github.io/portfolio/"
+SITE_URL = "https://ukroy07.github.io/"
 SITE_DESC = (
     "Senior GenAI Engineer at TCS, looking for AI / GenAI Engineer or "
     "SDE-I / SDE-II roles anywhere in India. Nearly three years of agentic "

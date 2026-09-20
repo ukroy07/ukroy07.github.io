@@ -55,20 +55,25 @@ stay shared as *Anyone with the link*, or recruiters hit a permission wall.
 
 ## Deploying
 
-Upload `index.html`. That is the whole site - one file, no build step on the
-host, no dependencies, no framework. The only external requests the page makes
-are to Google Fonts, and to Google Drive when someone opens a résumé.
+`index.html` is the whole site - one file, no build step on the host, no
+dependencies, no framework. The only external requests the page makes are to
+Google Fonts, and to Google Drive when someone opens a résumé.
 
-**GitHub Pages** is the shortest path to `ukroy07.github.io`:
+It is already wired up: this folder is the `ukroy07/ukroy07.github.io` repo,
+and GitHub Pages serves `main` at <https://ukroy07.github.io>. Shipping a
+change is three commands:
 
 ```bash
-git init && git add index.html && git commit -m "Portfolio"
+python build.py
+git commit -am "Describe the change"
+git push
 ```
 
-Push that to a repo named `ukroy07.github.io`, then turn on Pages in the
-repository settings. Before deploying elsewhere, update `SITE_URL` at the top
-of `build.py` so the Open Graph tags point at the real domain — that is what
-LinkedIn reads when the link is shared.
+Pages redeploys on its own, usually within a minute.
+
+If the site ever moves to another domain, update `SITE_URL` at the top of
+`build.py` and rebuild - it feeds the Open Graph tags, which is what LinkedIn
+reads when the link is shared.
 
 ## Things you may want to change
 
