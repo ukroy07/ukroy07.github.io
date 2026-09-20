@@ -1,0 +1,2 @@
+# Build output for Claude Artifacts, not for the web host.
+artifact.html

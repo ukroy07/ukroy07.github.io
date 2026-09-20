@@ -1,0 +1,1259 @@
+<title>Ujjawal Kumar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap">
+
+<style>
+/* ============================================================
+   TOKENS — light is the base; dark redefines tokens only.
+   ============================================================ */
+:root{
+  --bg:#F6F7FA;      --bg-2:#FFFFFF;
+  --panel:#FFFFFF;   --panel-2:#F0F2F7;
+  --line:#DEE1EB;    --line-2:#C4C8D9;
+  --tx:#14161F;      --tx-2:#464B61;   --tx-3:#676D86;
+  --accent:#4A5AE0;  --accent-soft:#ECEEFD;  --accent-line:#B9C0F5;
+  --on-accent:#FFFFFF;
+  --signal:#A96A0C;  --signal-soft:#FAF1E1;
+  --ok:#1B7A51;
+  --researcher:#0D8B83; --writer:#4A5AE0; --critic:#A96A0C; --coder:#7440C4;
+  --shadow:0 1px 2px rgba(20,22,31,.06), 0 14px 34px -20px rgba(20,22,31,.26);
+  --grid:rgba(20,22,31,.055);
+  --track-btn:#FFFFFF;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#090B11;     --bg-2:#0D1017;
+    --panel:#11141E;  --panel-2:#171B27;
+    --line:#232838;   --line-2:#343B50;
+    --tx:#E9EBF4;     --tx-2:#A5ABC2;   --tx-3:#767C95;
+    --accent:#909CFF; --accent-soft:#181C33; --accent-line:#3B4478;
+    --on-accent:#0A0C12;
+    --signal:#EFAC4E; --signal-soft:#251C0F;
+    --ok:#4FD79B;
+    --researcher:#43D6C7; --writer:#909CFF; --critic:#EFAC4E; --coder:#B48BFF;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 18px 42px -24px rgba(0,0,0,.85);
+    --grid:rgba(233,235,244,.05);
+    --track-btn:#1D2231;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#090B11;     --bg-2:#0D1017;
+  --panel:#11141E;  --panel-2:#171B27;
+  --line:#232838;   --line-2:#343B50;
+  --tx:#E9EBF4;     --tx-2:#A5ABC2;   --tx-3:#767C95;
+  --accent:#909CFF; --accent-soft:#181C33; --accent-line:#3B4478;
+  --on-accent:#0A0C12;
+  --signal:#EFAC4E; --signal-soft:#251C0F;
+  --ok:#4FD79B;
+  --researcher:#43D6C7; --writer:#909CFF; --critic:#EFAC4E; --coder:#B48BFF;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 18px 42px -24px rgba(0,0,0,.85);
+  --grid:rgba(233,235,244,.05);
+  --track-btn:#1D2231;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--tx);
+  font-family:"Newsreader",Georgia,"Times New Roman",serif;
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:64px 64px;
+  overflow-x:hidden;
+}
+
+/* ---------- type roles ---------- */
+.d{font-family:"Archivo",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-stretch:88%;letter-spacing:-.018em}
+.m{font-family:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.lbl{
+  font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--tx-3);
+}
+h1,h2,h3,h4{font-family:"Archivo",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-stretch:88%;margin:0;text-wrap:balance;letter-spacing:-.02em;line-height:1.12}
+h1{font-size:clamp(44px,7.4vw,78px);font-weight:800;letter-spacing:-.035em}
+h2{font-size:clamp(27px,3.6vw,38px);font-weight:700}
+h3{font-size:19px;font-weight:700;line-height:1.28;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit}
+
+/* ---------- layout ---------- */
+.wrap{max-width:1220px;margin:0 auto;padding:0 clamp(18px,4.4vw,44px)}
+.layout{display:block}
+main{min-width:0}
+.col{max-width:70ch}
+section{padding:clamp(64px,9vw,116px) 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:34px;flex-wrap:wrap}
+.sec-head .lbl{white-space:nowrap}
+.sec-head .rule{flex:1;height:1px;background:var(--line);min-width:24px}
+
+/* ---------- trace rail ---------- */
+.rail{display:none}
+@media (min-width:1080px){
+  .layout{display:grid;grid-template-columns:186px minmax(0,1fr);gap:clamp(32px,4vw,72px);align-items:start}
+  .rail{display:block;position:sticky;top:0;height:100vh;padding:34px 0;overflow:hidden}
+  .rail::before{content:"";position:absolute;left:5px;top:34px;bottom:34px;width:1px;background:var(--line)}
+  .rail-fill{position:absolute;left:5px;top:34px;width:1px;background:var(--accent);height:0;transition:height .18s linear}
+  .rail ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;position:relative}
+  .rail a{
+    display:flex;align-items:center;gap:12px;padding:7px 0 7px 0;text-decoration:none;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--tx-3);transition:color .16s;
+  }
+  .rail .dot{width:11px;height:11px;flex:none;border-radius:50%;border:1px solid var(--line-2);background:var(--bg);transition:all .18s;margin-left:0}
+  .rail a:hover{color:var(--tx)}
+  .rail a[aria-current="true"]{color:var(--tx);font-weight:700}
+  .rail a[aria-current="true"] .dot{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .rail-foot{position:absolute;bottom:34px;left:24px;right:0}
+}
+
+/* ---------- hero ---------- */
+.hero{padding-top:clamp(48px,7vw,84px);padding-bottom:clamp(40px,5vw,60px)}
+.hero-eyebrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:26px}
+.pip{width:7px;height:7px;border-radius:50%;background:var(--ok);flex:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--ok) 20%,transparent)}
+.role-line{
+  font-family:"Archivo",sans-serif;font-stretch:88%;font-weight:600;
+  font-size:clamp(17px,2.1vw,21px);color:var(--tx-2);margin-top:16px;letter-spacing:-.012em;
+}
+.role-line b{color:var(--tx);font-weight:700}
+.thesis{margin-top:26px;font-size:clamp(17px,1.9vw,19.5px);color:var(--tx-2);max-width:64ch}
+.thesis strong{color:var(--tx);font-weight:600}
+
+/* ---------- track switch ---------- */
+.switch{
+  margin-top:38px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:14px 16px;border:1px solid var(--line);border-radius:3px;background:var(--panel);
+  box-shadow:var(--shadow);max-width:min(100%,620px);
+}
+.switch-seg{display:flex;gap:4px;padding:4px;background:var(--panel-2);border-radius:2px;border:1px solid var(--line)}
+.switch-seg button{
+  font-family:"Archivo",sans-serif;font-stretch:88%;font-weight:600;font-size:13px;letter-spacing:-.005em;
+  padding:8px 15px;border:1px solid transparent;border-radius:2px;background:transparent;color:var(--tx-3);
+  cursor:pointer;transition:all .16s;white-space:nowrap;
+}
+.switch-seg button:hover{color:var(--tx)}
+.switch-seg button[aria-pressed="true"]{background:var(--track-btn);color:var(--tx);border-color:var(--line-2);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.switch .hint{margin-left:auto;font-size:10px}
+@media (max-width:560px){.switch .hint{display:none}}
+
+/* ---------- buttons ---------- */
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;align-items:center}
+.btn{
+  font-family:"Archivo",sans-serif;font-stretch:88%;font-weight:600;font-size:13.5px;
+  display:inline-flex;align-items:center;gap:9px;padding:12px 18px;border-radius:2px;
+  border:1px solid var(--line-2);background:var(--panel);color:var(--tx);
+  text-decoration:none;cursor:pointer;transition:all .16s;
+}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{filter:brightness(1.06);color:var(--on-accent);border-color:var(--accent)}
+.btn svg{width:14px;height:14px;flex:none}
+.btn-note{font-size:12px;color:var(--tx-3);font-family:"JetBrains Mono",monospace}
+
+/* ============================================================
+   LIVE RUN — the AgentHub simulator
+   ============================================================ */
+.console{
+  border:1px solid var(--line);border-radius:4px;background:var(--panel);
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.console-bar{
+  display:flex;align-items:center;gap:12px;padding:11px 14px;
+  border-bottom:1px solid var(--line);background:var(--panel-2);flex-wrap:wrap;
+}
+.console-bar .title{font-family:"Archivo",sans-serif;font-stretch:88%;font-weight:700;font-size:13px;letter-spacing:-.01em}
+.console-bar .spacer{flex:1;min-width:8px}
+.tasks{display:flex;gap:4px;padding:3px;background:var(--bg);border:1px solid var(--line);border-radius:2px}
+.tasks button{
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+  padding:6px 10px;border:0;border-radius:2px;background:transparent;color:var(--tx-3);cursor:pointer;transition:all .15s;
+}
+.tasks button:hover{color:var(--tx)}
+.tasks button[aria-pressed="true"]{background:var(--track-btn);color:var(--tx);box-shadow:0 1px 2px rgba(0,0,0,.1)}
+
+.graph-wrap{padding:8px 10px 0;overflow-x:auto;background:
+  radial-gradient(circle at 50% 0%, var(--accent-soft) 0%, transparent 62%)}
+.graph{display:block;width:100%;min-width:660px;height:auto}
+
+.nd rect:not(.halo),.nd polygon{fill:var(--panel-2);stroke:var(--line-2);stroke-width:1.25;transition:stroke .3s,fill .3s}
+.nd .nm{fill:var(--tx-3);font-family:"Archivo",sans-serif;font-size:13px;font-weight:700;transition:fill .3s}
+.nd .st{fill:var(--tx-3);font-family:"JetBrains Mono",monospace;font-size:8.6px;letter-spacing:.13em;opacity:.75}
+.nd .bulb{fill:var(--line-2);transition:fill .3s}
+.nd.on rect:not(.halo),.nd.on polygon{fill:var(--panel);stroke:var(--c);stroke-width:2}
+.nd.on .nm{fill:var(--tx)}
+.nd.on .bulb{fill:var(--c)}
+.nd.done rect:not(.halo){stroke:var(--c);stroke-width:1.4}
+.nd.done .nm{fill:var(--tx)}
+.nd.done .bulb{fill:var(--c)}
+.nd .halo{fill:var(--c);stroke:none;opacity:0;transition:opacity .3s}
+.nd.on .halo{opacity:.15}
+.eg{fill:none;stroke:var(--line-2);stroke-width:1.4;transition:stroke .3s,opacity .3s;opacity:.85}
+.eg.rev{stroke-dasharray:4 4;opacity:.45}
+.eg.lit{stroke:var(--accent);opacity:1;stroke-width:1.8}
+.eg.lit.rev{stroke:var(--critic)}
+.eg-lbl{fill:var(--tx-3);font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.1em}
+.arrowhead{fill:var(--line-2)}
+
+.console-body{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+@media (min-width:820px){.console-body{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)}}
+
+.stream{border-top:1px solid var(--line);padding:0;min-width:0}
+.stream-head{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.log{height:246px;overflow-y:auto;padding:12px 14px 16px;margin:0;list-style:none;scrollbar-width:thin}
+.log li{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:5px 0;font-family:"JetBrains Mono",monospace;font-size:11.6px;line-height:1.52;color:var(--tx-2)}
+.log .who{font-weight:700;letter-spacing:.07em;white-space:nowrap;font-size:10.4px;padding-top:1.5px}
+.log .who span{color:var(--tx-3);font-weight:400;margin-left:6px;letter-spacing:0}
+.log .msg{min-width:0;overflow-wrap:anywhere}
+.log .arrow{color:var(--tx-3);display:block;margin-top:2px}
+.log code{background:var(--panel-2);padding:1px 4px;border-radius:2px;font-size:10.8px;border:1px solid var(--line)}
+.log li.fin .msg{color:var(--ok);font-weight:500}
+.w-researcher{color:var(--researcher)} .w-writer{color:var(--writer)}
+.w-critic{color:var(--critic)} .w-coder{color:var(--coder)}
+.w-router{color:var(--tx-3)} .w-system{color:var(--ok)}
+
+.verdict{border-top:1px solid var(--line);padding:16px 16px 18px;min-width:0}
+@media (min-width:820px){.verdict{border-left:1px solid var(--line)}}
+.score-row{display:flex;align-items:baseline;gap:8px;margin:10px 0 4px}
+.score{font-family:"Archivo",sans-serif;font-stretch:88%;font-weight:800;font-size:52px;line-height:1;font-variant-numeric:tabular-nums;color:var(--tx-3);transition:color .4s}
+.score.warn{color:var(--critic)} .score.good{color:var(--ok)}
+.score-max{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--tx-3)}
+.meter{height:5px;background:var(--panel-2);border:1px solid var(--line);border-radius:99px;overflow:hidden;margin-top:12px}
+.meter i{display:block;height:100%;width:0;background:var(--tx-3);transition:width .6s cubic-bezier(.2,.7,.3,1),background .4s}
+.meter i.warn{background:var(--critic)} .meter i.good{background:var(--ok)}
+.verdict-note{font-size:13.5px;color:var(--tx-2);margin-top:14px;min-height:4.2em}
+.run-facts{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);display:grid;gap:7px}
+.fact{display:flex;justify-content:space-between;gap:12px;font-family:"JetBrains Mono",monospace;font-size:10.8px;color:var(--tx-3)}
+.fact b{color:var(--tx-2);font-weight:500;font-variant-numeric:tabular-nums}
+.caption{font-size:13.5px;color:var(--tx-3);margin-top:16px;max-width:70ch}
+.caption a{color:var(--accent)}
+
+/* ---------- metrics ---------- */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.metric{background:var(--panel);padding:20px 18px 18px}
+.metric .v{font-family:"Archivo",sans-serif;font-stretch:88%;font-weight:800;font-size:36px;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--tx)}
+.metric .k{font-size:14px;color:var(--tx-2);margin-top:9px;line-height:1.4}
+.metric .src{font-family:"JetBrains Mono",monospace;font-size:9.6px;letter-spacing:.09em;text-transform:uppercase;color:var(--tx-3);margin-top:10px;display:block}
+
+/* ---------- work ---------- */
+.tenure{display:grid;gap:10px;margin-bottom:30px;padding:16px 18px;border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:3px;background:var(--panel)}
+.tenure-row{display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap}
+.tenure-row .t{font-family:"Archivo",sans-serif;font-stretch:88%;font-weight:600;font-size:15px}
+.tenure-row .dt{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--tx-3);white-space:nowrap}
+
+.sys-list{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.sys{background:var(--panel);padding:22px 20px;display:grid;gap:9px}
+.sys-top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.sys h3{flex:1;min-width:220px}
+.sys .out{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums}
+.sys p{font-size:16px;color:var(--tx-2)}
+.sys .hard{font-size:15px;color:var(--tx-2);padding-left:14px;border-left:2px solid var(--accent-line)}
+.sys .hard b{font-family:"JetBrains Mono",monospace;font-size:9.8px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx-3);display:block;margin-bottom:3px;font-weight:500}
+.tools{display:flex;gap:6px;flex-wrap:wrap;margin-top:3px}
+.tool{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.05em;padding:3px 7px;border:1px solid var(--line);border-radius:2px;color:var(--tx-3);background:var(--bg)}
+.order-note{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--tx-3);margin-top:14px;display:flex;align-items:center;gap:7px}
+
+/* ---------- figure ---------- */
+figure{margin:0}
+.fig{border:1px solid var(--line);border-radius:3px;background:var(--panel);padding:20px 14px 6px;overflow-x:auto}
+.fig svg{display:block;width:100%;min-width:680px;height:auto;color:var(--tx-2)}
+figcaption{font-size:13.5px;color:var(--tx-3);margin-top:14px;max-width:70ch;padding:0 6px 14px}
+.f-lbl{fill:var(--tx-2);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em}
+.f-sm{fill:var(--tx-3);font-family:"JetBrains Mono",monospace;font-size:9.6px;letter-spacing:.07em}
+.f-hd{fill:var(--tx);font-family:"Archivo",sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.01em}
+.f-axis{stroke:var(--line-2);stroke-width:1.2}
+.f-tick{fill:var(--accent);stroke:none}
+.f-lost{fill:none;stroke:var(--line-2);stroke-width:1.3}
+.f-cut{stroke:var(--critic);stroke-width:1.4;stroke-dasharray:4 4}
+.f-cut.ok{stroke:var(--accent)}
+.f-buf{fill:var(--accent-soft);stroke:var(--accent-line);stroke-width:1.1}
+.f-dedupe{fill:var(--signal-soft);stroke:var(--signal);stroke-width:1;stroke-dasharray:3 3}
+.f-box{fill:var(--panel-2);stroke:var(--line-2);stroke-width:1.2}
+.f-bad{fill:var(--critic)} .f-good{fill:var(--ok)}
+.f-arrow{fill:var(--line-2)}
+
+/* ---------- decision cards ---------- */
+.decks{display:flex;flex-direction:column;gap:14px}
+.deck{border:1px solid var(--line);border-radius:3px;background:var(--panel);overflow:hidden}
+.deck>summary{
+  list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;
+  font-family:"Archivo",sans-serif;font-stretch:88%;font-weight:700;font-size:17.5px;letter-spacing:-.015em;line-height:1.3;
+  transition:background .16s;
+}
+.deck>summary::-webkit-details-marker{display:none}
+.deck>summary:hover{background:var(--panel-2)}
+.deck .chev{margin-left:auto;flex:none;width:15px;height:15px;color:var(--tx-3);transition:transform .22s;margin-top:4px}
+.deck[open] .chev{transform:rotate(90deg)}
+.deck .n{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--tx-3);flex:none;padding-top:5px;letter-spacing:.08em}
+.deck-body{padding:2px 20px 22px 20px;display:grid;gap:16px;border-top:1px solid var(--line);margin-top:0;padding-top:18px}
+.dl{display:grid;gap:5px}
+.dl b{font-family:"JetBrains Mono",monospace;font-size:9.8px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx-3);font-weight:500}
+.dl p{font-size:16px;color:var(--tx-2)}
+.dl.tradeoff{padding:13px 15px;background:var(--signal-soft);border:1px solid var(--line);border-left:2px solid var(--signal);border-radius:2px}
+.dl.tradeoff b{color:var(--signal)}
+code{font-family:"JetBrains Mono",monospace;font-size:.86em;background:var(--panel-2);padding:1.5px 5px;border-radius:2px;border:1px solid var(--line)}
+
+/* ---------- stack ---------- */
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.sgroup{background:var(--panel);padding:18px}
+.sgroup h4{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:11px;font-stretch:100%}
+.sgroup ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:5px}
+.sgroup li{font-family:"JetBrains Mono",monospace;font-size:11.2px;color:var(--tx-2);background:var(--bg);border:1px solid var(--line);padding:4px 8px;border-radius:2px}
+
+/* ---------- credentials ---------- */
+.creds{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.cred{background:var(--panel);padding:18px 20px}
+.cred h4{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--tx-3);margin-bottom:12px;font-stretch:100%}
+.cred ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.cred li{font-size:15px;color:var(--tx-2);line-height:1.45;display:grid;gap:2px}
+.cred li b{color:var(--tx);font-weight:600;font-family:"Archivo",sans-serif;font-stretch:88%;font-size:14.5px}
+.cred li span{font-family:"JetBrains Mono",monospace;font-size:10.6px;color:var(--tx-3);letter-spacing:.05em}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;margin-top:28px}
+.cc{background:var(--panel);padding:17px 18px;text-decoration:none;display:grid;gap:5px;transition:background .16s}
+.cc:hover{background:var(--panel-2)}
+.cc .k{font-family:"JetBrains Mono",monospace;font-size:9.8px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx-3)}
+.cc .v{font-family:"Archivo",sans-serif;font-stretch:88%;font-weight:600;font-size:15px;color:var(--tx);overflow-wrap:anywhere}
+.cc:hover .v{color:var(--accent)}
+
+footer{padding:36px 0 64px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer .lbl{font-size:10px}
+
+/* ---------- track visibility + ordering ---------- */
+[data-track="ai"] .t-sde,[data-track="sde"] .t-ai{display:none}
+[data-track="ai"] .ord{order:var(--ai)}
+[data-track="sde"] .ord{order:var(--sde)}
+
+/* ---------- reveal ---------- */
+html.js .rv{opacity:0;transform:translateY(14px)}
+html.js .rv.in{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+  html.js .rv{opacity:1;transform:none}
+}
+@keyframes flowdash{to{stroke-dashoffset:-24}}
+.eg.lit:not(.rev){stroke-dasharray:5 5;animation:flowdash .7s linear infinite}
+@media (prefers-reduced-motion: reduce){.eg.lit:not(.rev){stroke-dasharray:none;animation:none}}
+
+/* ---------- background: bio, timeline, practice ---------- */
+.bio{max-width:68ch;display:grid;gap:18px}
+.bio p{font-size:17.5px;color:var(--tx-2)}
+.bio strong{color:var(--tx);font-weight:600}
+
+.tl{margin-top:40px;display:grid;max-width:64ch}
+.tl-item{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;padding-bottom:24px;position:relative}
+.tl-item:last-child{padding-bottom:0}
+.tl-mark{position:relative;width:11px;display:flex;justify-content:center}
+.tl-mark::before{content:"";position:absolute;left:5px;top:18px;bottom:-24px;width:1px;background:var(--line)}
+.tl-item:last-child .tl-mark::before{display:none}
+.tl-dot{width:11px;height:11px;border-radius:50%;border:1px solid var(--line-2);background:var(--bg);margin-top:6px;flex:none;position:relative;z-index:1}
+.tl-item.now .tl-dot{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.tl-body{display:grid;gap:3px}
+.tl-when{font-family:"JetBrains Mono",monospace;font-size:10.4px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx-3)}
+.tl-what{font-family:"Archivo",sans-serif;font-stretch:88%;font-weight:700;font-size:16.5px;letter-spacing:-.012em;color:var(--tx)}
+.tl-where{font-size:15px;color:var(--tx-2)}
+
+.practice{margin-top:40px;border:1px solid var(--line);border-radius:3px;background:var(--panel);padding:20px;display:grid;gap:16px;max-width:64ch}
+.practice-top{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.practice-n{font-family:"Archivo",sans-serif;font-stretch:88%;font-weight:800;font-size:38px;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--tx)}
+.practice-k{font-size:15.5px;color:var(--tx-2);flex:1;min-width:210px}
+.plinks{display:flex;gap:6px;flex-wrap:wrap}
+.plink{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.04em;padding:6px 10px;border:1px solid var(--line);border-radius:2px;color:var(--tx-2);background:var(--bg);text-decoration:none;transition:border-color .16s,color .16s;display:inline-flex;align-items:center;gap:7px}
+.plink:hover{border-color:var(--accent);color:var(--accent)}
+.plink i{font-style:normal;color:var(--tx-3);font-size:9.6px}
+.plink:hover i{color:var(--accent)}
+
+/* ---------- at a glance ---------- */
+.glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;margin-top:28px}
+.gl{background:var(--panel);padding:15px 17px;display:grid;gap:5px}
+.gl .k{font-family:"JetBrains Mono",monospace;font-size:9.6px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx-3)}
+.gl .v{font-family:"Archivo",sans-serif;font-stretch:88%;font-weight:600;font-size:15px;color:var(--tx);line-height:1.3}
+
+/* ---------- hover polish ---------- */
+.sys,.metric,.sgroup{transition:background .18s}
+.sys:hover,.metric:hover{background:var(--panel-2)}
+.plink:focus-visible,.cc:focus-visible,.deck>summary:focus-visible{outline-offset:-2px}
+
+/* ---------- print: a clean leave-behind ---------- */
+@media print{
+  :root,
+  :root:not([data-theme="light"]),
+  :root[data-theme="dark"],
+  :root[data-theme="light"]{
+    --bg:#fff; --bg-2:#fff; --panel:#fff; --panel-2:#fff;
+    --line:#c9c9c9; --line-2:#9a9a9a;
+    --tx:#000; --tx-2:#242424; --tx-3:#585858;
+    --accent:#1d2f8f; --accent-soft:#eceefb; --accent-line:#a9b0dd; --on-accent:#fff;
+    --signal:#7a4c00; --signal-soft:#fbf6ed; --ok:#0a5c38;
+    --shadow:none; --grid:transparent;
+  }
+  body{background:#fff;background-image:none;font-size:10.5pt}
+  .rail,.switch,.console,.cta-row,#run .caption,.btn{display:none !important}
+  .layout{display:block !important}
+  section{padding:16px 0}
+  .sys,.deck,.metric,.cred,.tl-item,.practice,.fig,.gl{break-inside:avoid}
+  h1{font-size:30pt}
+  h2{font-size:16pt}
+  .deck-body{display:grid !important}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:7.5pt;color:#555;word-break:break-all}
+}
+</style>
+
+<div class="wrap">
+<div class="layout">
+
+  <!-- ================= TRACE RAIL ================= -->
+  <nav class="rail" aria-label="Sections">
+    <div class="rail-fill" id="railFill"></div>
+    <ol>
+      <li><a href="#top"><span class="dot"></span>Top</a></li>
+      <li><a href="#run"><span class="dot"></span>Live run</a></li>
+      <li><a href="#background"><span class="dot"></span>Background</a></li>
+      <li><a href="#signal"><span class="dot"></span>Signal</a></li>
+      <li><a href="#work"><span class="dot"></span>Systems</a></li>
+      <li><a href="#agenthub"><span class="dot"></span>AgentHub</a></li>
+      <li><a href="#decisions"><span class="dot"></span>Decisions</a></li>
+      <li><a href="#stack"><span class="dot"></span>Stack</a></li>
+      <li><a href="#credentials"><span class="dot"></span>Credentials</a></li>
+      <li><a href="#contact"><span class="dot"></span>Contact</a></li>
+    </ol>
+    <div class="rail-foot"><span class="lbl">India<br>IST · UTC+5:30</span></div>
+  </nav>
+
+  <main>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="top">
+    <div class="hero-eyebrow">
+      <span class="pip" aria-hidden="true"></span>
+      <span class="lbl t-ai">Seeking AI / GenAI Engineer roles · Any city in India</span>
+      <span class="lbl t-sde">Seeking SDE-I / SDE-II roles · Any city in India</span>
+    </div>
+
+    <h1>Ujjawal&nbsp;Kumar</h1>
+
+    <p class="role-line">
+      <span class="t-ai"><b>Senior GenAI Engineer</b> · Tata Consultancy Services — AI WisdomNext</span>
+      <span class="t-sde"><b>Software Engineer, Backend &amp; Enterprise Systems</b> · Tata Consultancy Services — AI WisdomNext</span>
+    </p>
+
+    <p class="thesis t-ai">
+      Nearly three years building the agentic layer of an enterprise GenAI platform — multimodal
+      retrieval, LangChain workflows, and a 35-metric evaluation harness that runs on every
+      template we ship. <strong>Most LLM demos hand you an answer and ask you to trust it.</strong>
+      I build the systems that show their work, then measure whether the work was any good.
+    </p>
+    <p class="thesis t-sde">
+      Nearly three years building the Python backend of an enterprise platform — async APIs,
+      multi-cloud data pipelines, event streaming and end-to-end tracing.
+      <strong>Anyone can make something work once.</strong> I build the part that keeps working:
+      the race between a publisher and a subscriber, the refresh token that has to cost a thief
+      everything, the trace that tells you what actually happened.
+    </p>
+
+    <div class="switch" role="group" aria-label="Show this page written for the AI track or the SDE track">
+      <span class="lbl">Open to</span>
+      <div class="switch-seg">
+        <button type="button" id="tAI"  aria-pressed="true">AI / GenAI Engineer</button>
+        <button type="button" id="tSDE" aria-pressed="false">SDE-I / SDE-II</button>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-primary t-ai" href="https://drive.google.com/file/d/1lJo5m41nx2frugv1PsHHvX-0tAvN0a1c/view?usp=sharing" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5H3.6A1.1 1.1 0 002.5 4.6v7.8a1.1 1.1 0 001.1 1.1h7.8a1.1 1.1 0 001.1-1.1V9"/><path d="M9.5 2.5h4v4"/><path d="M13.5 2.5L7.2 8.8"/></svg>
+        Résumé — GenAI track
+      </a>
+      <a class="btn btn-primary t-sde" href="https://drive.google.com/file/d/15uYRdcCIwwhM0H-3i1f9eSxDTh4OPLlT/view?usp=sharing" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5H3.6A1.1 1.1 0 002.5 4.6v7.8a1.1 1.1 0 001.1 1.1h7.8a1.1 1.1 0 001.1-1.1V9"/><path d="M9.5 2.5h4v4"/><path d="M13.5 2.5L7.2 8.8"/></svg>
+        Résumé — SDE track
+      </a>
+      <a class="btn" href="mailto:ujjawala84049@gmail.com?subject=Role%20discussion">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="1.5" y="3.5" width="13" height="9" rx="1"/><path d="M2 4.5l6 4 6-4"/></svg>
+        ujjawala84049@gmail.com
+      </a>
+      <a class="btn" href="https://github.com/ukroy07" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/ukroy07/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </header>
+
+  <!-- ================= LIVE RUN ================= -->
+  <section id="run">
+    <div class="sec-head">
+      <span class="lbl">01 — Selected project</span><span class="rule"></span>
+    </div>
+    <h2 style="max-width:20ch;margin-bottom:16px">This is my work, running.</h2>
+    <p class="col" style="color:var(--tx-2);margin-bottom:30px">
+      AgentHub is a multi-agent orchestration platform I built: four specialised agents
+      collaborate on a task through a LangGraph state machine, and every thought is streamed
+      to the browser as it happens. Two real runs are replayed here — choose a task and watch
+      the router send it down a different path.
+    </p>
+
+    <div class="console rv">
+      <div class="console-bar">
+        <span class="title">AgentHub</span>
+        <span class="lbl" id="runState">idle</span>
+        <span class="spacer"></span>
+        <div class="tasks" role="group" aria-label="Choose a task to replay">
+          <button type="button" id="taskProse" aria-pressed="true">brief · research</button>
+          <button type="button" id="taskCode"  aria-pressed="false">review · code</button>
+        </div>
+        <button type="button" class="btn" style="padding:7px 13px;font-size:12px" id="replay">Replay</button>
+      </div>
+
+      <div class="graph-wrap">
+        <svg class="graph" viewBox="0 0 880 244" role="img" aria-label="The agent graph: a router sends a task to either the Researcher, who hands to the Writer, or the Coder; both feed the Critic, which either completes the run or sends it back for one more revision.">
+          <defs>
+            <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0 1 L9 5 L0 9 z" class="arrowhead"/>
+            </marker>
+            <marker id="ahr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0 1 L9 5 L0 9 z" fill="var(--critic)"/>
+            </marker>
+          </defs>
+
+          <!-- edges -->
+          <path id="e-start"  class="eg" d="M86 122 H108"                                   marker-end="url(#ah)"/>
+          <path id="e-res"    class="eg" d="M168 114 C 190 104, 190 56, 206 56"             marker-end="url(#ah)"/>
+          <path id="e-cod"    class="eg" d="M168 130 C 190 140, 190 188, 206 188"           marker-end="url(#ah)"/>
+          <path id="e-wri"    class="eg" d="M350 56 H400"                                    marker-end="url(#ah)"/>
+          <path id="e-w2c"    class="eg" d="M544 56 C 578 56, 580 122, 600 122"             marker-end="url(#ah)"/>
+          <path id="e-c2c"    class="eg" d="M350 188 C 470 188, 500 122, 600 122"           marker-end="url(#ah)"/>
+          <path id="e-done"   class="eg" d="M734 122 H784"                                   marker-end="url(#ah)"/>
+          <path id="e-revw"   class="eg rev" d="M660 99 C 654 34, 552 20, 472 32"           marker-end="url(#ahr)"/>
+          <path id="e-revc"   class="eg rev" d="M660 145 C 652 214, 400 234, 280 214"       marker-end="url(#ahr)"/>
+          <text class="eg-lbl" x="556" y="17"  text-anchor="middle">revise</text>
+          <text class="eg-lbl" x="452" y="236" text-anchor="middle">revise</text>
+          <text class="eg-lbl" x="762" y="112" text-anchor="middle">≥ bar</text>
+
+          <!-- start -->
+          <g class="nd" id="n-start" style="--c:var(--tx-3)">
+            <rect class="pill" x="10" y="106" width="76" height="32" rx="16"/>
+            <text class="nm" x="48" y="126" text-anchor="middle" style="font-size:11px">task</text>
+          </g>
+          <!-- router -->
+          <g class="nd" id="n-router" style="--c:var(--accent)">
+            <polygon points="138,98 168,122 138,146 108,122"/>
+            <text class="st" x="138" y="126" text-anchor="middle">ROUTE</text>
+          </g>
+          <!-- researcher -->
+          <g class="nd" id="n-researcher" style="--c:var(--researcher)">
+            <rect class="halo" x="200" y="26" width="156" height="60" rx="10"/>
+            <rect x="206" y="32" width="144" height="48" rx="8"/>
+            <circle class="bulb" cx="221" cy="52" r="3.4"/>
+            <text class="nm" x="232" y="56">Researcher</text>
+            <text class="st" x="232" y="70">STANDING BY</text>
+          </g>
+          <!-- coder -->
+          <g class="nd" id="n-coder" style="--c:var(--coder)">
+            <rect class="halo" x="200" y="158" width="156" height="60" rx="10"/>
+            <rect x="206" y="164" width="144" height="48" rx="8"/>
+            <circle class="bulb" cx="221" cy="184" r="3.4"/>
+            <text class="nm" x="232" y="188">Coder</text>
+            <text class="st" x="232" y="202">STANDING BY</text>
+          </g>
+          <!-- writer -->
+          <g class="nd" id="n-writer" style="--c:var(--writer)">
+            <rect class="halo" x="394" y="26" width="156" height="60" rx="10"/>
+            <rect x="400" y="32" width="144" height="48" rx="8"/>
+            <circle class="bulb" cx="415" cy="52" r="3.4"/>
+            <text class="nm" x="426" y="56">Writer</text>
+            <text class="st" x="426" y="70">STANDING BY</text>
+          </g>
+          <!-- critic -->
+          <g class="nd" id="n-critic" style="--c:var(--critic)">
+            <rect class="halo" x="594" y="92" width="146" height="60" rx="10"/>
+            <rect x="600" y="98" width="134" height="48" rx="8"/>
+            <circle class="bulb" cx="615" cy="118" r="3.4"/>
+            <text class="nm" x="626" y="122">Critic</text>
+            <text class="st" x="626" y="136">STANDING BY</text>
+          </g>
+          <!-- done -->
+          <g class="nd" id="n-done" style="--c:var(--ok)">
+            <rect class="pill" x="784" y="106" width="86" height="32" rx="16"/>
+            <text class="nm" x="827" y="126" text-anchor="middle" style="font-size:11px">complete</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="console-body">
+        <div class="stream">
+          <div class="stream-head"><span class="lbl">Live thoughts</span></div>
+          <ul class="log" id="log" aria-live="polite" aria-relevant="additions"></ul>
+        </div>
+        <aside class="verdict">
+          <span class="lbl">Critic verdict</span>
+          <div class="score-row">
+            <span class="score" id="score">—</span>
+            <span class="score-max">/ 100</span>
+          </div>
+          <div class="meter"><i id="meter"></i></div>
+          <p class="verdict-note" id="vnote">Waiting for the Critic.</p>
+          <div class="run-facts">
+            <div class="fact"><span>revisions</span><b id="fRev">0 / 2</b></div>
+            <div class="fact"><span>events emitted</span><b id="fEv">0</b></div>
+            <div class="fact"><span>path taken</span><b id="fPath">—</b></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <p class="caption">
+      The Critic returns a <strong>structured verdict</strong> — an approve/revise boolean and a
+      0–100 score — rather than free text. That is what lets the graph branch on quality instead
+      of guessing, and a revision cap of two guarantees the loop terminates even when the model
+      keeps finding nitpicks. Source:
+      <a href="https://github.com/ukroy07/agent-orchestration-hub" target="_blank" rel="noopener">github.com/ukroy07/agent-orchestration-hub</a>.
+    </p>
+  </section>
+
+  <!-- ================= SIGNAL ================= -->
+
+  <!-- ================= BACKGROUND ================= -->
+  <section id="background">
+    <div class="sec-head"><span class="lbl">02 — Background</span><span class="rule"></span></div>
+    <h2 style="max-width:18ch;margin-bottom:28px">How I got here.</h2>
+
+    <div class="bio rv">
+      <p>
+        I graduated from Amity University in 2023, second in my batch, and joined TCS the
+        same year, as <strong>AI WisdomNext</strong> was being built. Nearly three years on,
+        I've shipped most of the platform's generative layer: multimodal retrieval, agentic
+        workflows, the evaluation harness that scores every template, and the distributed tracing
+        that makes the whole thing debuggable.
+      </p>
+      <p>
+        What holds my attention is the part of a system that only shows up under load — event
+        ordering, token rotation, the failure mode nobody planned for. AgentHub began as a
+        question about whether four agents could hold a coherent conversation, and turned into a
+        lesson about what happens when a publisher is faster than its subscriber.
+      </p>
+    </div>
+
+    <div class="tl rv">
+      <div class="tl-item now">
+        <div class="tl-mark"><span class="tl-dot"></span></div>
+        <div class="tl-body">
+          <span class="tl-when">Jul 2026 — present</span>
+          <span class="tl-what">Senior GenAI Engineer</span>
+          <span class="tl-where">Tata Consultancy Services &middot; AI WisdomNext</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-mark"><span class="tl-dot"></span></div>
+        <div class="tl-body">
+          <span class="tl-when">Dec 2023 — Jul 2026</span>
+          <span class="tl-what">GenAI Engineer</span>
+          <span class="tl-where">Tata Consultancy Services &middot; GenAI &amp; Enterprise Solutions</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-mark"><span class="tl-dot"></span></div>
+        <div class="tl-body">
+          <span class="tl-when">2019 — 2023</span>
+          <span class="tl-what">B.Tech, Computer Science &amp; Engineering</span>
+          <span class="tl-where">Amity University &middot; CGPA 9.26 / 10 &middot; Silver Medalist, 2nd in batch</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="practice rv">
+      <div class="practice-top">
+        <span class="practice-n">1,000+</span>
+        <span class="practice-k">algorithm and data-structure problems solved across LeetCode,
+          GeeksforGeeks and Code360</span>
+      </div>
+      <div class="plinks">
+        <a class="plink" href="https://leetcode.com/u/ukroy07/" target="_blank" rel="noopener">LeetCode <i>&#8599;</i></a>
+        <a class="plink" href="https://codolio.com/profile/ukroy07" target="_blank" rel="noopener">Codolio — every platform in one place <i>&#8599;</i></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="signal">
+    <div class="sec-head"><span class="lbl">03 — What the work produced</span><span class="rule"></span></div>
+    <h2 style="max-width:22ch;margin-bottom:14px">Numbers, with the system that produced them attached.</h2>
+    <p class="col" style="color:var(--tx-2);margin-bottom:30px">
+      Every number here comes from a system running in production at TCS, or from a result that
+      can be independently verified.
+    </p>
+    <div class="metrics rv">
+      <div class="metric"><div class="v">1,000+</div><div class="k">daily requests served across text, image, audio and document retrieval</div><span class="src">Multimodal platform · WisdomNext</span></div>
+      <div class="metric"><div class="v">−30%</div><div class="k">semantic search latency after the retrieval path was reworked</div><span class="src">Azure AI Search · FAISS</span></div>
+      <div class="metric"><div class="v">−70%</div><div class="k">time to review a legal contract, end to end</div><span class="src">Document analysis pipeline</span></div>
+      <div class="metric"><div class="v">−40%</div><div class="k">manual effort in business workflows now orchestrated automatically</div><span class="src">LangChain · Pydantic parsers</span></div>
+      <div class="metric"><div class="v">~35</div><div class="k">automated quality metrics running against platform templates</div><span class="src">RAGAS · DeepEval · OpenEvals</span></div>
+      <div class="metric"><div class="v">Top 10</div><div class="k">of 300,000+ participants — 3rd place, TCS AI Hackathon 2025</div><span class="src">Company-wide, 2025</span></div>
+    </div>
+  </section>
+
+  <!-- ================= SYSTEMS ================= -->
+  <section id="work">
+    <div class="sec-head"><span class="lbl">04 — Tata Consultancy Services</span><span class="rule"></span></div>
+    <h2 style="max-width:20ch;margin-bottom:14px">Seven systems, one platform.</h2>
+    <p class="col" style="color:var(--tx-2);margin-bottom:26px">
+      All of it on <strong>AI WisdomNext</strong>, TCS's enterprise GenAI platform. I joined as
+      the platform was being built and have shipped into it ever since.
+    </p>
+
+    <div class="tenure rv">
+      <div class="tenure-row"><span class="t">Senior GenAI Engineer</span><span class="dt">Jul 2026 — present</span></div>
+      <div class="tenure-row"><span class="t" style="color:var(--tx-2);font-weight:500">GenAI Engineer · GenAI &amp; Enterprise Solutions</span><span class="dt">Dec 2023 — Jul 2026</span></div>
+    </div>
+
+    <div class="sys-list rv">
+
+      <article class="sys ord" style="--ai:6;--sde:1">
+        <div class="sys-top"><h3>Distributed tracing, frontend to database</h3><span class="out">full request visibility</span></div>
+        <p>Instrumented every service with OpenTelemetry and propagated trace context across API calls, database calls and inter-service hops, so a single request can be followed from the browser all the way down and back, visualised in Grafana.</p>
+        <div class="hard"><b>The hard part</b>Context propagation survives process boundaries only if every client and every async boundary passes it along. A trace that breaks in the middle is worse than no trace, because it looks complete.</div>
+        <div class="tools"><span class="tool">OpenTelemetry</span><span class="tool">Grafana</span><span class="tool">FastAPI</span><span class="tool">async</span></div>
+      </article>
+
+      <article class="sys ord" style="--ai:1;--sde:2">
+        <div class="sys-top"><h3>Multimodal embedding &amp; retrieval</h3><span class="out">1,000+ req/day · −30% latency</span></div>
+        <p>A unified embedding and analysis layer over text, images, audio and documents, so one query searches a whole heterogeneous catalogue instead of four separate silos. Built across Azure AI Vision, Azure AI Search, Azure OpenAI and Vertex AI.</p>
+        <div class="hard"><b>The hard part</b>Four modalities produce four different notions of "similar". Getting them into one ranked result set that a human agrees with is a retrieval problem long before it is a model problem.</div>
+        <div class="tools"><span class="tool">Azure AI Search</span><span class="tool">Azure AI Vision</span><span class="tool">Vertex AI</span><span class="tool">FAISS</span><span class="tool">ChromaDB</span></div>
+      </article>
+
+      <article class="sys ord" style="--ai:2;--sde:4">
+        <div class="sys-top"><h3>Agentic workflow automation</h3><span class="out">−40% manual effort</span></div>
+        <p>Business processes described once and then executed as agentic flows, with LangChain driving the steps and <code>PydanticOutputParser</code> forcing every model response into a validated schema. The resulting flow renders as a chart the business owner can read.</p>
+        <div class="hard"><b>The hard part</b>Free-text model output cannot drive a workflow. Constraining generation to a schema is what turns "usually right" into something a downstream system can depend on.</div>
+        <div class="tools"><span class="tool">LangChain</span><span class="tool">Pydantic</span><span class="tool">Python</span><span class="tool">FastAPI</span></div>
+      </article>
+
+      <article class="sys ord" style="--ai:3;--sde:6">
+        <div class="sys-top"><h3>Prompt-and-response evaluation harness</h3><span class="out">~35 automated metrics</span></div>
+        <p>A scoring system with roughly 35 automated metrics — faithfulness, relevance, context precision and the rest — wired into the platform's templates so quality is measured continuously rather than argued about after a release.</p>
+        <div class="hard"><b>The hard part</b>An evaluation suite is only useful if it fails when quality actually drops. Choosing metrics that correlate with human judgement, rather than metrics that are easy to compute, is most of the work.</div>
+        <div class="tools"><span class="tool">RAGAS</span><span class="tool">DeepEval</span><span class="tool">OpenEvals</span></div>
+      </article>
+
+      <article class="sys ord" style="--ai:4;--sde:3">
+        <div class="sys-top"><h3>Legal document analysis pipeline</h3><span class="out">−70% review time</span></div>
+        <p>Automated section extraction, consolidation, clause-level comparison and generation of the modified document, turning contract review from a full read-through into a diff a lawyer confirms.</p>
+        <div class="hard"><b>The hard part</b>Contracts are structured by convention, not by markup. Section boundaries have to be inferred, and a wrong boundary silently corrupts every comparison downstream of it.</div>
+        <div class="tools"><span class="tool">Azure OpenAI</span><span class="tool">Python</span><span class="tool">RAG</span></div>
+      </article>
+
+      <article class="sys ord" style="--ai:5;--sde:7">
+        <div class="sys-top"><h3>Image-generation benchmarking framework</h3><span class="out">+25% cost / quality</span></div>
+        <p>A harness that runs the same prompt across DALL·E 2 and 3, GPT-Image, Imagen, Gemini, Stable Diffusion, Bedrock Titan and Qwen, then compares cost against output quality so the platform picks a provider on evidence instead of habit.</p>
+        <div class="hard"><b>The hard part</b>Seven vendors, seven request shapes, seven failure modes, and no shared quality metric. The framework had to normalise all of it before a comparison meant anything.</div>
+        <div class="tools"><span class="tool">Azure OpenAI</span><span class="tool">Vertex AI</span><span class="tool">Stability AI</span><span class="tool">AWS Bedrock</span><span class="tool">Qwen</span></div>
+      </article>
+
+      <article class="sys ord" style="--ai:7;--sde:5">
+        <div class="sys-top"><h3>Multilingual speech pipeline</h3><span class="out">200+ languages</span></div>
+        <p>Transcription, translation and retrieval over audio in more than 200 languages, built on OpenAI and Gemini speech services, so global compliance documentation is searchable no matter what language it was recorded in.</p>
+        <div class="hard"><b>The hard part</b>Transcription errors compound through translation and then through retrieval. The pipeline had to be built so a low-confidence segment stays visible rather than quietly becoming a confident wrong answer.</div>
+        <div class="tools"><span class="tool">OpenAI Speech</span><span class="tool">Gemini</span><span class="tool">RAG</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= AGENTHUB ================= -->
+  <section id="agenthub">
+    <div class="sec-head"><span class="lbl">05 — Built outside work</span><span class="rule"></span></div>
+    <h2 style="max-width:24ch;margin-bottom:14px">The race that most streaming demos never notice.</h2>
+    <p class="col" style="color:var(--tx-2);margin-bottom:14px">
+      In AgentHub, every agent action funnels through a single <code>emit()</code> closure that
+      writes three places: the audit row in Postgres, a Redis publish for live delivery, and a
+      short-lived Redis list.
+    </p>
+    <p class="col" style="color:var(--tx-2);margin-bottom:32px">
+      That third write is the interesting one. Redis pub/sub only reaches clients that are
+      <em>already</em> subscribed, and agents emit their first events within milliseconds —
+      faster than a freshly navigated browser can open a socket.
+    </p>
+
+    <figure class="fig rv">
+      <svg viewBox="0 0 900 356" role="img" aria-label="Two timelines compared. With pub/sub alone, the four events emitted before the browser's socket subscribes are lost and the client sees only events five and six. With a replay buffer, every event is also appended to a Redis list; the socket subscribes first and then drains the buffer, so the client receives all six events in order, with the overlap de-duplicated by sequence number.">
+        <!-- ============ LANE A ============ -->
+        <text class="f-hd" x="0" y="30">Pub/sub alone</text>
+        <text class="f-sm" x="0" y="48">what a late client sees</text>
+
+        <line class="f-axis" x1="176" y1="96" x2="672" y2="96"/>
+        <text class="f-sm" x="176" y="126">t = 0 ms</text>
+        <text class="f-sm" x="672" y="126" text-anchor="end">run ends</text>
+
+        <circle class="f-lost" cx="196" cy="96" r="7"/><text class="f-sm" x="196" y="82" text-anchor="middle">1</text>
+        <circle class="f-lost" cx="276" cy="96" r="7"/><text class="f-sm" x="276" y="82" text-anchor="middle">2</text>
+        <circle class="f-lost" cx="356" cy="96" r="7"/><text class="f-sm" x="356" y="82" text-anchor="middle">3</text>
+        <circle class="f-lost" cx="436" cy="96" r="7"/><text class="f-sm" x="436" y="82" text-anchor="middle">4</text>
+        <circle class="f-tick" cx="556" cy="96" r="7"/><text class="f-sm" x="556" y="82" text-anchor="middle">5</text>
+        <circle class="f-tick" cx="636" cy="96" r="7"/><text class="f-sm" x="636" y="82" text-anchor="middle">6</text>
+        <line class="f-lost" x1="186" y1="106" x2="446" y2="106" stroke-dasharray="2 3"/>
+        <text class="f-sm" x="316" y="122" text-anchor="middle" style="fill:var(--critic)">lost — nobody was listening yet</text>
+
+        <line class="f-cut" x1="496" y1="56" x2="496" y2="116"/>
+        <text class="f-sm" x="496" y="48" text-anchor="middle" style="fill:var(--critic)">socket subscribes · +900 ms</text>
+
+        <path d="M684 96 H738" class="f-axis" marker-end="url(#fa)"/>
+        <rect class="f-box" x="746" y="72" width="150" height="48" rx="4"/>
+        <text class="f-lbl" x="758" y="92">Browser receives</text>
+        <text class="f-lbl" x="758" y="110" style="fill:var(--critic)">events 5 – 6</text>
+
+        <!-- ============ divider ============ -->
+        <line x1="0" y1="168" x2="900" y2="168" stroke="var(--line)" stroke-width="1"/>
+
+        <!-- ============ LANE B ============ -->
+        <text class="f-hd" x="0" y="214">With a replay buffer</text>
+        <text class="f-sm" x="0" y="232">how AgentHub does it</text>
+
+        <line class="f-axis" x1="176" y1="272" x2="672" y2="272"/>
+
+        <rect class="f-buf" x="186" y="296" width="460" height="22" rx="4"/>
+        <text class="f-sm" x="196" y="311">every emit also appended → Redis list, bounded, TTL</text>
+
+        <line class="f-lost" x1="196" y1="279" x2="196" y2="296" stroke-dasharray="2 2"/>
+        <line class="f-lost" x1="276" y1="279" x2="276" y2="296" stroke-dasharray="2 2"/>
+        <line class="f-lost" x1="356" y1="279" x2="356" y2="296" stroke-dasharray="2 2"/>
+        <line class="f-lost" x1="436" y1="279" x2="436" y2="296" stroke-dasharray="2 2"/>
+        <line class="f-lost" x1="556" y1="279" x2="556" y2="296" stroke-dasharray="2 2"/>
+        <line class="f-lost" x1="636" y1="279" x2="636" y2="296" stroke-dasharray="2 2"/>
+
+        <circle class="f-tick" cx="196" cy="272" r="7"/><text class="f-sm" x="196" y="258" text-anchor="middle">1</text>
+        <circle class="f-tick" cx="276" cy="272" r="7"/><text class="f-sm" x="276" y="258" text-anchor="middle">2</text>
+        <circle class="f-tick" cx="356" cy="272" r="7"/><text class="f-sm" x="356" y="258" text-anchor="middle">3</text>
+        <circle class="f-tick" cx="436" cy="272" r="7"/><text class="f-sm" x="436" y="258" text-anchor="middle">4</text>
+        <circle class="f-tick" cx="556" cy="272" r="7"/><text class="f-sm" x="556" y="258" text-anchor="middle">5</text>
+        <circle class="f-tick" cx="636" cy="272" r="7"/><text class="f-sm" x="636" y="258" text-anchor="middle">6</text>
+
+        <rect class="f-dedupe" x="496" y="240" width="150" height="18" rx="3"/>
+        <text class="f-sm" x="571" y="253" text-anchor="middle" style="fill:var(--signal)">overlap → deduped by seq</text>
+
+        <line class="f-cut ok" x1="496" y1="232" x2="496" y2="292"/>
+        <text class="f-sm" x="496" y="224" text-anchor="middle" style="fill:var(--accent)">① subscribe, then ② drain the buffer</text>
+
+        <path d="M684 272 H738" class="f-axis" marker-end="url(#fa)"/>
+        <rect class="f-box" x="746" y="248" width="150" height="48" rx="4"/>
+        <text class="f-lbl" x="758" y="268">Browser receives</text>
+        <text class="f-lbl" x="758" y="286" style="fill:var(--ok)">events 1 – 6, in order</text>
+
+        <defs>
+          <marker id="fa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0 1 L9 5 L0 9 z" class="f-arrow"/>
+          </marker>
+        </defs>
+      </svg>
+      <figcaption>
+        Subscribing <em>before</em> reading the buffer is the whole trick: it makes duplicates
+        possible and gaps impossible, and duplicates are cheap to remove with a sequence number.
+        A client that connects a full second late still receives the run from event 1, in order,
+        with nothing doubled.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ================= DECISIONS ================= -->
+  <section id="decisions">
+    <div class="sec-head"><span class="lbl">06 — How I decide</span><span class="rule"></span></div>
+    <h2 style="max-width:22ch;margin-bottom:14px">Four decisions, and what each one cost.</h2>
+    <p class="col" style="color:var(--tx-2);margin-bottom:30px">
+      Each of these is a place where the obvious answer and the right answer differ. Every
+      engineering decision costs something; these are the ones I chose to pay, and why.
+    </p>
+
+    <div class="decks rv">
+
+      <details class="deck ord" style="--ai:1;--sde:4" open>
+        <summary><span class="n">D1</span>A quality gate the state machine can actually branch on
+          <svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+        </summary>
+        <div class="deck-body">
+          <div class="dl"><b>Problem</b><p>"Is this draft good enough?" is a judgement, and a model asked for a judgement returns prose. A state machine cannot branch on prose — and a revise loop with no exit condition is an infinite loop with a billing account.</p></div>
+          <div class="dl"><b>Decision</b><p>The Critic returns a structured verdict: an approve/revise boolean and a 0–100 score, parsed into graph state. Routing reads the number. A revision cap of two bounds the loop, and the cap is enforced by the graph rather than trusted to the model.</p></div>
+          <div class="dl tradeoff"><b>What it costs</b><p>A genuinely weak third draft ships anyway, carrying its score. I would rather return an honest 68 than never return at all — and the score makes the weakness visible instead of hiding it.</p></div>
+        </div>
+      </details>
+
+      <details class="deck ord" style="--ai:2;--sde:2">
+        <summary><span class="n">D2</span>The event that arrives before anyone is listening
+          <svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+        </summary>
+        <div class="deck-body">
+          <div class="dl"><b>Problem</b><p>Redis pub/sub reaches only clients that are already subscribed. Agents emit within milliseconds of a task starting — well before a freshly navigated browser has a socket open. The first thoughts of every run were being dropped on the floor.</p></div>
+          <div class="dl"><b>Decision</b><p>Every <code>emit()</code> writes three places: the audit row, the pub/sub channel, and a bounded Redis list. The WebSocket endpoint subscribes <em>first</em>, then drains the list, then de-duplicates by sequence number. Ordering the two steps that way makes duplicates possible and gaps impossible.</p></div>
+          <div class="dl tradeoff"><b>What it costs</b><p>A monotonic sequence per run and a buffer with a TTL — real state I now have to reason about and expire. I would rather own a bounded buffer than explain to a user why the first four thoughts of their task are missing.</p></div>
+        </div>
+      </details>
+
+      <details class="deck ord" style="--ai:3;--sde:1">
+        <summary><span class="n">D3</span>A stolen refresh token should cost the thief everything
+          <svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+        </summary>
+        <div class="deck-body">
+          <div class="dl"><b>Problem</b><p>A refresh token in <code>localStorage</code> means one XSS hole is a permanent session, not a temporary one. The usual tutorial puts it there anyway.</p></div>
+          <div class="dl"><b>Decision</b><p>The refresh token lives in an HttpOnly cookie scoped to <code>/auth</code> and never reaches JavaScript; the access token is returned in the body and held in memory. Every refresh mints a new token and revokes the old one. Presenting an already-spent token revokes <em>every</em> session for that user — from the server's side a replay and a theft look identical, so the safe reading is theft.</p></div>
+          <div class="dl tradeoff"><b>What it costs</b><p>A user on a flaky connection can be signed out everywhere by a retried request. I will take that false positive; the alternative failure is silent and permanent.</p></div>
+        </div>
+      </details>
+
+      <details class="deck ord" style="--ai:4;--sde:3">
+        <summary><span class="n">D4</span>Authorisation that cannot go stale
+          <svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+        </summary>
+        <div class="deck-body">
+          <div class="dl"><b>Problem</b><p>A JWT that carries the grant is a permission frozen at login. Revoke someone's admin rights and nothing happens until their token happens to expire.</p></div>
+          <div class="dl"><b>Decision</b><p>The token carries only which role the session is <em>acting as</em>, never the grant itself; the grant is read from the database on every request. <code>require_admin</code> is mounted on the router rather than on each endpoint, so a newly added admin route is locked by default instead of open by default. Model output is rendered as markdown with raw HTML disabled, so agent text can never become an injection vector.</p></div>
+          <div class="dl tradeoff"><b>What it costs</b><p>One extra read per request. It buys revocation that takes effect on the very next call, and a default failure mode of "locked out" rather than "wide open".</p></div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ================= STACK ================= -->
+  <section id="stack">
+    <div class="sec-head"><span class="lbl">07 — Working tools</span><span class="rule"></span></div>
+    <h2 style="max-width:20ch;margin-bottom:14px">Grouped by what I use it for.</h2>
+    <p class="col" style="color:var(--tx-2);margin-bottom:30px">
+      Everything here has been used to ship something other people depend on.
+    </p>
+    <div class="stack rv">
+      <div class="sgroup ord" style="--ai:1;--sde:5"><h4>LLM &amp; agent systems</h4><ul><li>LangChain</li><li>LangGraph</li><li>Agentic workflows</li><li>Structured output</li><li>Pydantic parsers</li><li>RAG</li><li>Prompt design</li></ul></div>
+      <div class="sgroup ord" style="--ai:2;--sde:6"><h4>Evaluation &amp; quality</h4><ul><li>RAGAS</li><li>DeepEval</li><li>OpenEvals</li><li>LLM-as-judge</li><li>Regression harnesses</li></ul></div>
+      <div class="sgroup ord" style="--ai:3;--sde:7"><h4>Retrieval &amp; vectors</h4><ul><li>Azure AI Search</li><li>FAISS</li><li>ChromaDB</li><li>Hybrid search</li><li>Chunking strategy</li></ul></div>
+      <div class="sgroup ord" style="--ai:4;--sde:1"><h4>Backend &amp; APIs</h4><ul><li>Python</li><li>FastAPI</li><li>Flask</li><li>REST</li><li>WebSocket</li><li>OpenAPI / Swagger</li><li>async / await</li><li>SQLAlchemy 2</li></ul></div>
+      <div class="sgroup ord" style="--ai:5;--sde:3"><h4>Data &amp; infrastructure</h4><ul><li>PostgreSQL</li><li>Redis</li><li>Alembic</li><li>Docker</li><li>Jenkins</li><li>Git</li></ul></div>
+      <div class="sgroup ord" style="--ai:6;--sde:4"><h4>Observability</h4><ul><li>OpenTelemetry</li><li>Grafana</li><li>Trace propagation</li><li>Structured logging</li></ul></div>
+      <div class="sgroup ord" style="--ai:7;--sde:8"><h4>Cloud platforms</h4><ul><li>Azure OpenAI</li><li>AWS Bedrock</li><li>Vertex AI</li><li>Azure AI Vision</li></ul></div>
+      <div class="sgroup ord" style="--ai:8;--sde:2"><h4>Core computer science</h4><ul><li>Data structures &amp; algorithms</li><li>1,000+ problems solved</li><li>System design</li><li>OOP</li><li>SDLC</li></ul></div>
+    </div>
+  </section>
+
+  <!-- ================= CREDENTIALS ================= -->
+  <section id="credentials">
+    <div class="sec-head"><span class="lbl">08 — On the record</span><span class="rule"></span></div>
+    <h2 style="max-width:18ch;margin-bottom:30px">Credentials.</h2>
+    <div class="creds rv">
+      <div class="cred">
+        <h4>Certifications</h4>
+        <ul>
+          <li><b>AWS Certified Generative AI Developer — Professional</b><span>AIP-C01</span></li>
+          <li><b>Microsoft Certified: Azure AI Fundamentals</b><span>AI-900</span></li>
+          <li><b>Microsoft Certified: Azure Fundamentals</b><span>AZ-900</span></li>
+          <li><b>Microsoft Certified: Azure Data Fundamentals</b><span>DP-900</span></li>
+          <li><b>Microsoft Certified: Power Platform Fundamentals</b><span>PL-900</span></li>
+        </ul>
+      </div>
+      <div class="cred">
+        <h4>Honours</h4>
+        <ul>
+          <li><b>TCS AI Hackathon 2025 — 3rd place</b><span>Top 10 of 300,000+ participants</span></li>
+          <li><b>Silver Medalist, B.Tech CSE</b><span>2nd rank in batch · Amity University · 2019–2023</span></li>
+          <li><b>Salesforce Trailblazer — Expeditioner</b><span>Top 5% · 78,000+ points · 59 modules</span></li>
+        </ul>
+      </div>
+      <div class="cred">
+        <h4>Education &amp; practice</h4>
+        <ul>
+          <li><b>B.Tech, Computer Science &amp; Engineering</b><span>Amity University · CGPA 9.26 / 10 · Graduated 2023</span></li>
+          <li><b>1,000+ problems solved</b><span>LeetCode · GeeksforGeeks · Code360</span></li>
+          <li><b>Open source</b><span>github.com/ukroy07 · MIT-licensed</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="sec-head"><span class="lbl">09 — Next step</span><span class="rule"></span></div>
+    <h2 style="max-width:24ch;margin-bottom:16px">If this is the kind of work your team needs, I'd like to talk.</h2>
+    <p class="col" style="color:var(--tx-2)">
+      I'm looking for
+      <span class="t-ai">AI / GenAI Engineer</span><span class="t-sde">SDE-I / SDE-II</span>
+      roles at product companies and top-tier consulting firms — the kind of team where the hard
+      part is the system, not the demo. Open to roles in any city in India.
+      Fastest way to reach me is email.
+    </p>
+
+    <div class="cta-row" style="margin-top:26px">
+      <a class="btn btn-primary t-ai" href="https://drive.google.com/file/d/1lJo5m41nx2frugv1PsHHvX-0tAvN0a1c/view?usp=sharing" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5H3.6A1.1 1.1 0 002.5 4.6v7.8a1.1 1.1 0 001.1 1.1h7.8a1.1 1.1 0 001.1-1.1V9"/><path d="M9.5 2.5h4v4"/><path d="M13.5 2.5L7.2 8.8"/></svg>
+        Résumé — GenAI track
+      </a>
+      <a class="btn btn-primary t-sde" href="https://drive.google.com/file/d/15uYRdcCIwwhM0H-3i1f9eSxDTh4OPLlT/view?usp=sharing" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5H3.6A1.1 1.1 0 002.5 4.6v7.8a1.1 1.1 0 001.1 1.1h7.8a1.1 1.1 0 001.1-1.1V9"/><path d="M9.5 2.5h4v4"/><path d="M13.5 2.5L7.2 8.8"/></svg>
+        Résumé — SDE track
+      </a>
+      <button type="button" class="btn" id="copyMail">Copy email address</button>
+      <span class="btn-note" id="copyNote" role="status" aria-live="polite"></span>
+    </div>
+
+    <div class="glance">
+      <div class="gl"><span class="k">Currently</span><span class="v">Senior GenAI Engineer, TCS</span></div>
+      <div class="gl"><span class="k">Experience</span><span class="v">Nearly 3 years</span></div>
+      <div class="gl"><span class="k">Notice period</span><span class="v">60 days</span></div>
+      <div class="gl"><span class="k">Location</span><span class="v">Any city in India</span></div>
+    </div>
+
+    <div class="contact-grid">
+      <a class="cc" href="mailto:ujjawala84049@gmail.com"><span class="k">Email</span><span class="v">ujjawala84049@gmail.com</span></a>
+      <a class="cc" href="tel:+918404933597"><span class="k">Phone</span><span class="v">+91 84049 33597</span></a>
+      <a class="cc" href="tel:+918709828024"><span class="k">Phone (alt)</span><span class="v">+91 87098 28024</span></a>
+      <a class="cc" href="https://www.linkedin.com/in/ukroy07/" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">in/ukroy07</span></a>
+      <a class="cc" href="https://github.com/ukroy07" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">ukroy07</span></a>
+      <a class="cc" href="https://leetcode.com/u/ukroy07/" target="_blank" rel="noopener"><span class="k">LeetCode</span><span class="v">u/ukroy07</span></a>
+      <a class="cc" href="https://codolio.com/profile/ukroy07" target="_blank" rel="noopener"><span class="k">Codolio</span><span class="v">ukroy07</span></a>
+      <a class="cc" href="https://github.com/ukroy07/agent-orchestration-hub" target="_blank" rel="noopener"><span class="k">Featured repo</span><span class="v">agent-orchestration-hub</span></a>
+    </div>
+
+    <footer>
+      <span class="lbl">Ujjawal Kumar · India · <span id="yr">2026</span></span>
+      <a class="lbl" href="mailto:ujjawala84049@gmail.com" style="text-decoration:none">ujjawala84049@gmail.com</a>
+    </footer>
+  </section>
+
+  </main>
+</div>
+</div>
+
+
+<script>
+(function () {
+  "use strict";
+  var root = document.documentElement;
+  root.classList.add("js");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------------- track switching ---------------- */
+  var btnAI = document.getElementById("tAI"), btnSDE = document.getElementById("tSDE");
+  function setTrack(t) {
+    root.setAttribute("data-track", t);
+    btnAI.setAttribute("aria-pressed", String(t === "ai"));
+    btnSDE.setAttribute("aria-pressed", String(t === "sde"));
+    try { localStorage.setItem("uk-track", t); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem("uk-track"); } catch (e) {}
+  setTrack(saved === "sde" ? "sde" : "ai");
+  btnAI.addEventListener("click", function () { setTrack("ai"); });
+  btnSDE.addEventListener("click", function () { setTrack("sde"); });
+  document.addEventListener("keydown", function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var tag = (e.target && e.target.tagName) || "";
+    if (tag === "INPUT" || tag === "TEXTAREA") return;
+    if (e.key === "a" || e.key === "A") setTrack("ai");
+    if (e.key === "s" || e.key === "S") setTrack("sde");
+  });
+
+  document.getElementById("yr").textContent = String(new Date().getFullYear());
+
+  /* a printed copy should show every decision, not just the open one */
+  window.addEventListener("beforeprint", function () {
+    document.querySelectorAll(".deck").forEach(function (d) { d.open = true; });
+  });
+
+  document.getElementById("copyMail").addEventListener("click", function () {
+    var n = document.getElementById("copyNote");
+    var write = navigator.clipboard && navigator.clipboard.writeText
+      ? navigator.clipboard.writeText("ujjawala84049@gmail.com")
+      : Promise.reject();
+    write.then(function () { n.textContent = "Copied."; })
+      ["catch"](function () { n.textContent = "ujjawala84049@gmail.com"; });
+    setTimeout(function () { n.textContent = ""; }, 5000);
+  });
+
+  /* ---------------- scroll reveal + rail ---------------- */
+  var revealables = [].slice.call(document.querySelectorAll(".rv"));
+  if ("IntersectionObserver" in window && !reduce) {
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); ro.unobserve(en.target); } });
+    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.06 });
+    revealables.forEach(function (el) { ro.observe(el); });
+  } else { revealables.forEach(function (el) { el.classList.add("in"); }); }
+
+  var railLinks = [].slice.call(document.querySelectorAll(".rail a"));
+  var railFill = document.getElementById("railFill");
+  var targets = railLinks.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+  function onScroll() {
+    var y = window.scrollY + window.innerHeight * 0.32, active = 0;
+    for (var i = 0; i < targets.length; i++) { if (targets[i] && targets[i].offsetTop <= y) active = i; }
+    railLinks.forEach(function (a, i) {
+      if (i === active) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+    });
+    if (railFill) {
+      var h = document.body.scrollHeight - window.innerHeight;
+      var pct = h > 0 ? Math.min(1, Math.max(0, window.scrollY / h)) : 0;
+      railFill.style.height = (pct * (window.innerHeight - 68)) + "px";
+    }
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  onScroll();
+
+  /* =========================================================
+     AGENTHUB LIVE RUN
+     ========================================================= */
+  var logEl   = document.getElementById("log");
+  var scoreEl = document.getElementById("score");
+  var meterEl = document.getElementById("meter");
+  var vnoteEl = document.getElementById("vnote");
+  var stateEl = document.getElementById("runState");
+  var fRev = document.getElementById("fRev"), fEv = document.getElementById("fEv"), fPath = document.getElementById("fPath");
+
+  var NODES = ["start", "router", "researcher", "writer", "critic", "coder", "done"];
+  var EDGES = ["e-start", "e-res", "e-cod", "e-wri", "e-w2c", "e-c2c", "e-done", "e-revw", "e-revc"];
+  function node(id) { return document.getElementById("n-" + id); }
+  function edge(id) { return document.getElementById(id); }
+  function status(id, text) {
+    var g = node(id); if (!g) return;
+    var st = g.querySelector(".st"); if (st) st.textContent = text;
+  }
+
+  var PROSE = {
+    path: "research → write → critique",
+    events: [
+      { t: 0,    ms: 0,    who: "ROUTER",     cls: "w-router",     node: "router",     edge: "e-start", msg: "task_type = <code>general</code> · routing to Researcher", tail: "" },
+      { t: 620,  ms: 700,  who: "RESEARCHER", cls: "w-researcher", node: "researcher", edge: "e-res",   msg: "Gathering context on evaluating RAG systems for a compliance audience…" },
+      { t: 2300, ms: 2400, who: "RESEARCHER", cls: "w-researcher", node: "researcher", msg: "Three frames worth keeping: faithfulness, answer relevance, context precision.", tail: "→ passing to writer", doneNode: "researcher" },
+      { t: 3050, ms: 3100, who: "WRITER",     cls: "w-writer",     node: "writer",     edge: "e-wri",   msg: "Drafting the brief…" },
+      { t: 4700, ms: 4800, who: "WRITER",     cls: "w-writer",     node: "writer",     msg: "Draft ready. Sending to Critic for review.", tail: "→ passing to critic", doneNode: "writer" },
+      { t: 5350, ms: 5400, who: "CRITIC",     cls: "w-critic",     node: "critic",     edge: "e-w2c",   msg: "Evaluating the draft for accuracy, completeness and clarity…" },
+      { t: 7100, ms: 7200, who: "CRITIC",     cls: "w-critic",     node: "critic",     score: 72, verdict: "revise",
+        msg: "The three metrics are named but never defined for a non-technical reader, and there is no worked example. Accurate, not yet usable.", tail: "→ revise (1 / 2)",
+        note: "Correct, but written for the wrong reader. Sent back with a specific fix, not a vague complaint.", edge2: "e-revw" },
+      { t: 8000, ms: 8100, who: "WRITER",     cls: "w-writer",     node: "writer",     msg: "Revising the draft based on the critique…" },
+      { t: 9600, ms: 9700, who: "WRITER",     cls: "w-writer",     node: "writer",     msg: "Revision ready. Sending to Critic.", tail: "→ passing to critic", doneNode: "writer" },
+      { t: 10250, ms: 10300, who: "CRITIC",   cls: "w-critic",     node: "critic",     edge: "e-w2c",   msg: "Evaluating the revision…" },
+      { t: 11900, ms: 12000, who: "CRITIC",   cls: "w-critic",     node: "critic",     score: 94, verdict: "approve",
+        msg: "Each metric is now defined in one line and followed by a concrete example. Correctly scoped and readable by the intended audience.", tail: "→ approve",
+        note: "Above the bar on the second pass. The graph stops here rather than polishing forever.", doneNode: "critic" },
+      { t: 12600, ms: 12650, who: "SYSTEM",   cls: "w-system",     node: "done",       edge: "e-done", fin: true, msg: "Task complete — final quality score 94/100 · 1 revision · 11 events streamed." }
+    ]
+  };
+
+  var CODE = {
+    path: "code → critique → revise",
+    events: [
+      { t: 0,    ms: 0,    who: "ROUTER", cls: "w-router", node: "router", edge: "e-start", msg: "task_type = <code>code_review</code> · routing to Coder" },
+      { t: 620,  ms: 700,  who: "CODER",  cls: "w-coder",  node: "coder",  edge: "e-cod",   msg: "Reading the submitted Prim's minimum spanning tree implementation…" },
+      { t: 2500, ms: 2600, who: "CODER",  cls: "w-coder",  node: "coder",  msg: "Implementation ready. Sending to Critic for review.", tail: "→ passing to critic", doneNode: "coder" },
+      { t: 3150, ms: 3200, who: "CRITIC", cls: "w-critic", node: "critic", edge: "e-c2c",   msg: "Evaluating the draft for accuracy, completeness and clarity…" },
+      { t: 4900, ms: 5000, who: "CRITIC", cls: "w-critic", node: "critic", score: 61, verdict: "revise",
+        msg: "Syntax error: <code>_min_heap: List[Edge] = []</code> is flush left, outside <code>compute_mst</code>. It needs to be indented into the method scope.", tail: "→ revise (1 / 2)",
+        note: "A real defect, not a style note. The Critic points at the line rather than saying “improve quality”.", edge2: "e-revc" },
+      { t: 5800, ms: 5900, who: "CODER",  cls: "w-coder",  node: "coder",  msg: "Revising implementation based on the critique…" },
+      { t: 7500, ms: 7600, who: "CODER",  cls: "w-coder",  node: "coder",  msg: "Indentation corrected, type aliases added. Sending to Critic.", tail: "→ passing to critic", doneNode: "coder" },
+      { t: 8150, ms: 8200, who: "CRITIC", cls: "w-critic", node: "critic", edge: "e-c2c",   msg: "Evaluating the revision…" },
+      { t: 9900, ms: 10000, who: "CRITIC", cls: "w-critic", node: "critic", score: 100, verdict: "approve",
+        msg: "Clean, production-ready and well-typed, with proper error handling, complexity notes and a runnable example. Excellent work.", tail: "→ approve",
+        note: "100 / 100 on the second pass. The revision loop paid for itself in one round trip.", doneNode: "critic" },
+      { t: 10600, ms: 10650, who: "SYSTEM", cls: "w-system", node: "done", edge: "e-done", fin: true, msg: "Task complete — final quality score 100/100 · 1 revision · 9 events streamed." }
+    ]
+  };
+
+  var timers = [], current = PROSE, evCount = 0, revCount = 0;
+
+  function clockAt(ms) {
+    var base = 12 * 3600 + 32 * 60 + 4;
+    var s = base + Math.round(ms / 1000);
+    var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), ss = s % 60;
+    var ap = h >= 12 ? "PM" : "AM", hh = h % 12; if (hh === 0) hh = 12;
+    return hh + ":" + String(m).padStart(2, "0") + ":" + String(ss).padStart(2, "0") + " " + ap;
+  }
+
+  function reset() {
+    timers.forEach(clearTimeout); timers = [];
+    logEl.innerHTML = ""; evCount = 0; revCount = 0;
+    NODES.forEach(function (id) { var g = node(id); if (g) g.classList.remove("on", "done"); });
+    ["researcher", "writer", "critic", "coder"].forEach(function (id) { status(id, "STANDING BY"); });
+    EDGES.forEach(function (id) { var e = edge(id); if (e) e.classList.remove("lit"); });
+    scoreEl.textContent = "—"; scoreEl.className = "score";
+    meterEl.style.width = "0%"; meterEl.className = "";
+    vnoteEl.textContent = "Waiting for the Critic.";
+    fRev.textContent = "0 / 2"; fEv.textContent = "0"; fPath.textContent = "—";
+    stateEl.textContent = "idle";
+  }
+
+  function paint(ev) {
+    if (ev.edge) { var e1 = edge(ev.edge); if (e1) e1.classList.add("lit"); }
+    if (ev.edge2) { var e2 = edge(ev.edge2); if (e2) e2.classList.add("lit"); }
+    if (ev.node) {
+      NODES.forEach(function (id) { var g = node(id); if (g && id !== ev.node) g.classList.remove("on"); });
+      var g = node(ev.node);
+      if (g) { g.classList.add("on"); if (ev.node !== "done" && ev.node !== "router" && ev.node !== "start") status(ev.node, "WORKING"); }
+    }
+    if (ev.doneNode) { var d = node(ev.doneNode); if (d) { d.classList.add("done"); status(ev.doneNode, "COMPLETE"); } }
+
+    var li = document.createElement("li");
+    if (ev.fin) li.className = "fin";
+    var who = document.createElement("span");
+    who.className = "who " + ev.cls;
+    who.innerHTML = ev.who + "<span>" + clockAt(ev.ms) + (ev.score != null ? " · score " + ev.score : "") + "</span>";
+    var msg = document.createElement("span");
+    msg.className = "msg";
+    msg.innerHTML = ev.msg + (ev.tail ? '<span class="arrow">' + ev.tail + "</span>" : "");
+    li.appendChild(who); li.appendChild(msg);
+    logEl.appendChild(li);
+    logEl.scrollTop = logEl.scrollHeight;
+
+    evCount++; fEv.textContent = String(evCount);
+    if (ev.tail && ev.tail.indexOf("revise") !== -1) { revCount++; fRev.textContent = revCount + " / 2"; }
+
+    if (ev.score != null) {
+      scoreEl.textContent = String(ev.score);
+      var good = ev.score >= 80;
+      scoreEl.className = "score " + (good ? "good" : "warn");
+      meterEl.className = good ? "good" : "warn";
+      meterEl.style.width = ev.score + "%";
+      if (ev.note) vnoteEl.textContent = ev.note;
+    }
+    if (ev.fin) {
+      stateEl.textContent = "complete";
+      NODES.forEach(function (id) { var g = node(id); if (g) g.classList.remove("on"); });
+      var dn = node("done"); if (dn) { dn.classList.add("on", "done"); }
+      var cr = node("critic"); if (cr) cr.classList.add("done");
+    }
+  }
+
+  function run(script) {
+    reset();
+    current = script;
+    fPath.textContent = script.path;
+    if (reduce) { script.events.forEach(paint); return; }
+    stateEl.textContent = "running";
+    script.events.forEach(function (ev) {
+      timers.push(setTimeout(function () { paint(ev); }, ev.t));
+    });
+  }
+
+  var bProse = document.getElementById("taskProse"), bCode = document.getElementById("taskCode");
+  function selectTask(which) {
+    bProse.setAttribute("aria-pressed", String(which === "prose"));
+    bCode.setAttribute("aria-pressed", String(which === "code"));
+    run(which === "prose" ? PROSE : CODE);
+  }
+  bProse.addEventListener("click", function () { selectTask("prose"); });
+  bCode.addEventListener("click", function () { selectTask("code"); });
+  document.getElementById("replay").addEventListener("click", function () { run(current); });
+
+  /* first run: start once the console is on screen */
+  var console_ = document.querySelector(".console");
+  var started = false;
+  function kick() { if (!started) { started = true; run(PROSE); } }
+  if ("IntersectionObserver" in window) {
+    var io2 = new IntersectionObserver(function (en) {
+      if (en[0] && en[0].isIntersecting) { kick(); io2.disconnect(); }
+    }, { threshold: 0.25 });
+    io2.observe(console_);
+    setTimeout(function () { if (!started) kick(); }, 4000);
+  } else { kick(); }
+})();
+</script>
