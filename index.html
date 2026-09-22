@@ -4,8 +4,7 @@
 <meta charset="utf-8">
 <meta name="description" content="Senior GenAI Engineer at TCS, looking for AI / GenAI Engineer or SDE-I / SDE-II roles anywhere in India. Nearly three years of agentic workflows, multimodal retrieval and LLM evaluation - plus the backend systems underneath them.">
 <meta name="author" content="Ujjawal Kumar">
-<meta name="theme-color" content="#4A5AE0" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090B11" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#090B11">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234A5AE0'/%3E%3Cg fill='none' stroke='white' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M9 11v7a7 7 0 0 0 14 0v-7'/%3E%3C/g%3E%3C/svg%3E">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Ujjawal Kumar">
@@ -22,39 +21,12 @@
 
 <style>
 /* ============================================================
-   TOKENS &#8212; light is the base; dark redefines tokens only.
+   TOKENS &#8212; dark is the base; light redefines tokens only.
+   Dark is the default for every visitor regardless of OS setting;
+   the toggle stamps data-theme="light" and remembers the choice.
    ============================================================ */
 :root{
-  --bg:#F6F7FA;      --bg-2:#FFFFFF;
-  --panel:#FFFFFF;   --panel-2:#F0F2F7;
-  --line:#DEE1EB;    --line-2:#C4C8D9;
-  --tx:#14161F;      --tx-2:#464B61;   --tx-3:#676D86;
-  --accent:#4A5AE0;  --accent-soft:#ECEEFD;  --accent-line:#B9C0F5;
-  --on-accent:#FFFFFF;
-  --signal:#A96A0C;  --signal-soft:#FAF1E1;
-  --ok:#1B7A51;
-  --researcher:#0D8B83; --writer:#4A5AE0; --critic:#A96A0C; --coder:#7440C4;
-  --shadow:0 1px 2px rgba(20,22,31,.06), 0 14px 34px -20px rgba(20,22,31,.26);
-  --grid:rgba(20,22,31,.055);
-  --track-btn:#FFFFFF;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#090B11;     --bg-2:#0D1017;
-    --panel:#11141E;  --panel-2:#171B27;
-    --line:#232838;   --line-2:#343B50;
-    --tx:#E9EBF4;     --tx-2:#A5ABC2;   --tx-3:#767C95;
-    --accent:#909CFF; --accent-soft:#181C33; --accent-line:#3B4478;
-    --on-accent:#0A0C12;
-    --signal:#EFAC4E; --signal-soft:#251C0F;
-    --ok:#4FD79B;
-    --researcher:#43D6C7; --writer:#909CFF; --critic:#EFAC4E; --coder:#B48BFF;
-    --shadow:0 1px 2px rgba(0,0,0,.5), 0 18px 42px -24px rgba(0,0,0,.85);
-    --grid:rgba(233,235,244,.05);
-    --track-btn:#1D2231;
-  }
-}
-:root[data-theme="dark"]{
+  color-scheme:dark;
   --bg:#090B11;     --bg-2:#0D1017;
   --panel:#11141E;  --panel-2:#171B27;
   --line:#232838;   --line-2:#343B50;
@@ -67,6 +39,21 @@
   --shadow:0 1px 2px rgba(0,0,0,.5), 0 18px 42px -24px rgba(0,0,0,.85);
   --grid:rgba(233,235,244,.05);
   --track-btn:#1D2231;
+}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#F6F7FA;      --bg-2:#FFFFFF;
+  --panel:#FFFFFF;   --panel-2:#F0F2F7;
+  --line:#DEE1EB;    --line-2:#C4C8D9;
+  --tx:#14161F;      --tx-2:#464B61;   --tx-3:#676D86;
+  --accent:#4A5AE0;  --accent-soft:#ECEEFD;  --accent-line:#B9C0F5;
+  --on-accent:#FFFFFF;
+  --signal:#A96A0C;  --signal-soft:#FAF1E1;
+  --ok:#1B7A51;
+  --researcher:#0D8B83; --writer:#4A5AE0; --critic:#A96A0C; --coder:#7440C4;
+  --shadow:0 1px 2px rgba(20,22,31,.06), 0 14px 34px -20px rgba(20,22,31,.26);
+  --grid:rgba(20,22,31,.055);
+  --track-btn:#FFFFFF;
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -132,7 +119,7 @@ section:first-of-type{border-top:0}
 }
 
 /* ---------- hero ---------- */
-.hero{padding-top:clamp(48px,7vw,84px);padding-bottom:clamp(40px,5vw,60px)}
+.hero{padding-top:clamp(66px,7vw,84px);padding-bottom:clamp(40px,5vw,60px)}
 .hero-eyebrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:26px}
 .pip{width:7px;height:7px;border-radius:50%;background:var(--ok);flex:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--ok) 20%,transparent)}
 .role-line{
@@ -423,7 +410,31 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.2,.
   .deck-body{display:grid !important}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:7.5pt;color:#555;word-break:break-all}
 }
+/* ---------- theme toggle ---------- */
+.theme-toggle{
+  position:fixed;top:14px;right:14px;z-index:50;
+  width:38px;height:38px;display:grid;place-items:center;padding:0;
+  border:1px solid var(--line-2);border-radius:3px;
+  background:var(--panel);color:var(--tx-2);box-shadow:var(--shadow);
+  cursor:pointer;transition:color .16s,border-color .16s,background .16s;
+}
+.theme-toggle:hover{color:var(--accent);border-color:var(--accent)}
+.theme-toggle svg{width:17px;height:17px;display:block}
+/* the icon shows where a click takes you: sun on dark, moon on light */
+.theme-toggle .i-moon{display:none}
+:root[data-theme="light"] .theme-toggle .i-sun{display:none}
+:root[data-theme="light"] .theme-toggle .i-moon{display:block}
+@media print{.theme-toggle{display:none !important}}
 </style>
+<script>
+/* before first paint: a visitor who chose light must not see a dark flash */
+try { if (localStorage.getItem("uk-theme") === "light") document.documentElement.setAttribute("data-theme", "light"); } catch (e) {}
+</script>
+
+<button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch to light theme" title="Switch to light theme">
+  <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+  <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 14.6A8.4 8.4 0 019.4 3.8a8.4 8.4 0 1010.8 10.8z"/></svg>
+</button>
 
 <div class="wrap">
 <div class="layout">
@@ -1047,6 +1058,24 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.2,.
   var root = document.documentElement;
   root.classList.add("js");
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------------- theme: dark unless this visitor chose light ---------------- */
+  var themeBtn = document.getElementById("themeToggle");
+  var metaTheme = document.querySelector('meta[name="theme-color"]');
+  function setTheme(t, remember) {
+    root.setAttribute("data-theme", t);
+    var label = t === "dark" ? "Switch to light theme" : "Switch to dark theme";
+    themeBtn.setAttribute("aria-label", label);
+    themeBtn.title = label;
+    if (metaTheme) metaTheme.setAttribute("content", t === "dark" ? "#090B11" : "#F6F7FA");
+    if (remember) { try { localStorage.setItem("uk-theme", t); } catch (e) {} }
+  }
+  var savedTheme = null;
+  try { savedTheme = localStorage.getItem("uk-theme"); } catch (e) {}
+  setTheme(savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark", false);
+  themeBtn.addEventListener("click", function () {
+    setTheme(root.getAttribute("data-theme") === "light" ? "dark" : "light", true);
+  });
 
   /* ---------------- track switching ---------------- */
   var btnAI = document.getElementById("tAI"), btnSDE = document.getElementById("tSDE");

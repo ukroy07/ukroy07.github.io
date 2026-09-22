@@ -92,8 +92,10 @@ reads when the link is shared.
   picked because distributed tracing is work that is actually on the page.
 - Archivo (condensed to 88%) for display, Newsreader for prose, JetBrains Mono
   for anything telemetry-shaped.
-- Light and dark are both designed, driven by tokens; the page follows the
-  reader's system theme.
+- Dark by default for every visitor, whatever their OS is set to. The button
+  in the top-right corner switches to light and remembers the choice on that
+  device. Dark is the base token set in CSS, so the first paint is already
+  dark - no white flash while the script loads.
 - There is a print stylesheet: the rail, the live demo and every button drop
   away, colours flatten to ink on white, all four decision cards expand, and
   link URLs are printed after their text. It prints as a clean leave-behind.

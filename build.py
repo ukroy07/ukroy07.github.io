@@ -70,10 +70,7 @@ def wrap_document(fragment):
             '<meta charset="utf-8">',
             '<meta name="description" content="%s">' % SITE_DESC,
             '<meta name="author" content="Ujjawal Kumar">',
-            '<meta name="theme-color" content="#4A5AE0" '
-            'media="(prefers-color-scheme: light)">',
-            '<meta name="theme-color" content="#090B11" '
-            'media="(prefers-color-scheme: dark)">',
+            '<meta name="theme-color" content="#090B11">',
             '<link rel="icon" href="%s">' % FAVICON,
             '<meta property="og:type" content="profile">',
             '<meta property="og:title" content="Ujjawal Kumar">',
