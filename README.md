@@ -3,9 +3,9 @@
 A single-page portfolio that reconfigures itself for whoever is reading it. A
 recruiter picks a track at the top — **AI / GenAI Engineer** or **SDE-I /
 SDE-II** — and the headline, the summary, the order of the seven TCS systems,
-the order of the engineering decisions, the stack groupings and the résumé
+the order of the engineering decisions, the stack groupings and the resume
 download all re-frame to match. Same facts, different emphasis, exactly like
-the two résumé PDFs.
+the two resume PDFs.
 
 Section 02 carries the human half: a short bio, a three-step timeline, and the
 algorithm-practice record. Section 09 ends with the operational facts a
@@ -42,10 +42,10 @@ matter:
   out as mojibake. Markup gets numeric entities, JavaScript gets `\uXXXX`
   escapes.
 
-## The résumés
+## The resumes
 
-Both résumé buttons link straight to Google Drive, so there is no file to
-upload and nothing to keep in sync. Replacing a résumé means replacing the
+Both resume buttons link straight to Google Drive, so there is no file to
+upload and nothing to keep in sync. Replacing a resume means replacing the
 file **in Drive**, keeping the same share link - the page then needs no change
 at all.
 
@@ -57,7 +57,7 @@ stay shared as *Anyone with the link*, or recruiters hit a permission wall.
 
 `index.html` is the whole site - one file, no build step on the host, no
 dependencies, no framework. The only external requests the page makes are to
-Google Fonts, and to Google Drive when someone opens a résumé.
+Google Fonts, and to Google Drive when someone opens a resume.
 
 It is already wired up: this folder is the `ukroy07/ukroy07.github.io` repo,
 and GitHub Pages serves `main` at <https://ukroy07.github.io>. Shipping a
