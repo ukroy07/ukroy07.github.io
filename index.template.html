@@ -482,11 +482,11 @@ try { if (localStorage.getItem("uk-theme") === "light") document.documentElement
     </div>
 
     <div class="cta-row">
-      <a class="btn btn-primary t-ai" href="https://drive.google.com/file/d/1Ple1Ynuf_RNjOSS-rv_j_oUW29sbWuNP/view?usp=drive_link" target="_blank" rel="noopener">
+      <a class="btn btn-primary t-ai" href="https://drive.google.com/file/d/1OUbc-s1OfbJm6rQUU1QlEhLwSoFlauRX/view?usp=sharing" target="_blank" rel="noopener">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5H3.6A1.1 1.1 0 002.5 4.6v7.8a1.1 1.1 0 001.1 1.1h7.8a1.1 1.1 0 001.1-1.1V9"/><path d="M9.5 2.5h4v4"/><path d="M13.5 2.5L7.2 8.8"/></svg>
         Resume — GenAI track
       </a>
-      <a class="btn btn-primary t-sde" href="https://drive.google.com/file/d/1TYdbYRGOiUeZV8t3NwbZ468RQZOnOusK/view?usp=drive_link" target="_blank" rel="noopener">
+      <a class="btn btn-primary t-sde" href="https://drive.google.com/file/d/1BzWFLjNtzdim8K47_je5BZNMCD1-0ixX/view?usp=sharing" target="_blank" rel="noopener">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5H3.6A1.1 1.1 0 002.5 4.6v7.8a1.1 1.1 0 001.1 1.1h7.8a1.1 1.1 0 001.1-1.1V9"/><path d="M9.5 2.5h4v4"/><path d="M13.5 2.5L7.2 8.8"/></svg>
         Resume — SDE track
       </a>
@@ -641,7 +641,7 @@ try { if (localStorage.getItem("uk-theme") === "light") document.documentElement
       <p>
         I graduated from Amity University in 2023, second in my batch, and joined TCS the
         same year, as <strong>AI WisdomNext</strong> was being built. Nearly three years on,
-        I've shipped most of the platform's generative layer: multimodal retrieval, agentic
+        I've shipped most of the platform's generative layer: multimodal and hybrid retrieval, agentic
         workflows, the evaluation harness that scores every template, and the distributed tracing
         that makes the whole thing debuggable.
       </p>
@@ -713,7 +713,7 @@ try { if (localStorage.getItem("uk-theme") === "light") document.documentElement
   <!-- ================= SYSTEMS ================= -->
   <section id="work">
     <div class="sec-head"><span class="lbl">04 — Tata Consultancy Services</span><span class="rule"></span></div>
-    <h2 style="max-width:20ch;margin-bottom:14px">Seven systems, one platform.</h2>
+    <h2 style="max-width:20ch;margin-bottom:14px">Eight systems, one platform.</h2>
     <p class="col" style="color:var(--tx-2);margin-bottom:26px">
       All of it on <strong>AI WisdomNext</strong>, TCS's enterprise GenAI platform. I joined as
       the platform was being built and have shipped into it ever since.
@@ -726,7 +726,7 @@ try { if (localStorage.getItem("uk-theme") === "light") document.documentElement
 
     <div class="sys-list rv">
 
-      <article class="sys ord" style="--ai:6;--sde:1">
+      <article class="sys ord" style="--ai:7;--sde:1">
         <div class="sys-top"><h3>Distributed tracing, frontend to database</h3><span class="out">full request visibility</span></div>
         <p>Instrumented every service with OpenTelemetry and propagated trace context across API calls, database calls and inter-service hops, so a single request can be followed from the browser all the way down and back, visualised in Grafana.</p>
         <div class="hard"><b>The hard part</b>Context propagation survives process boundaries only if every client and every async boundary passes it along. A trace that breaks in the middle is worse than no trace, because it looks complete.</div>
@@ -734,41 +734,48 @@ try { if (localStorage.getItem("uk-theme") === "light") document.documentElement
       </article>
 
       <article class="sys ord" style="--ai:1;--sde:2">
+        <div class="sys-top"><h3>Hybrid search over engineering documents</h3><span class="out">keyword + vector · text or image</span></div>
+        <p>Search over engineering documents and drawings that fuses keyword and vector retrieval, takes either a text question or an image as the query, and returns an LLM answer grounded in the documents it retrieved. Docling extracts each file, with RapidOCR reading the text inside drawings, and the index sits behind a pluggable vector-store layer that runs on Weaviate or Azure AI Search interchangeably.</p>
+        <div class="hard"><b>The hard part</b>Two vector stores with different schemas and query APIs had to look identical to everything above them, and re-indexing had to be safe to repeat. Every chunk's ID is derived from where it sits in its source document rather than from a counter, so indexing the same file twice overwrites instead of duplicating; images load lazily, so a query response stays small.</div>
+        <div class="tools"><span class="tool">Weaviate</span><span class="tool">Azure AI Search</span><span class="tool">Docling</span><span class="tool">RapidOCR</span><span class="tool">RAG</span></div>
+      </article>
+
+      <article class="sys ord" style="--ai:2;--sde:3">
         <div class="sys-top"><h3>Multimodal embedding &amp; retrieval</h3><span class="out">1,000+ req/day · −30% latency</span></div>
         <p>A unified embedding and analysis layer over text, images, audio and documents, so one query searches a whole heterogeneous catalogue instead of four separate silos. Built across Azure AI Vision, Azure AI Search, Azure OpenAI and Vertex AI.</p>
         <div class="hard"><b>The hard part</b>Four modalities produce four different notions of "similar". Getting them into one ranked result set that a human agrees with is a retrieval problem long before it is a model problem.</div>
         <div class="tools"><span class="tool">Azure AI Search</span><span class="tool">Azure AI Vision</span><span class="tool">Vertex AI</span><span class="tool">FAISS</span><span class="tool">ChromaDB</span></div>
       </article>
 
-      <article class="sys ord" style="--ai:2;--sde:4">
+      <article class="sys ord" style="--ai:3;--sde:5">
         <div class="sys-top"><h3>Agentic workflow automation</h3><span class="out">−40% manual effort</span></div>
         <p>Business processes described once and then executed as agentic flows, with LangChain driving the steps and <code>PydanticOutputParser</code> forcing every model response into a validated schema. The resulting flow renders as a chart the business owner can read.</p>
         <div class="hard"><b>The hard part</b>Free-text model output cannot drive a workflow. Constraining generation to a schema is what turns "usually right" into something a downstream system can depend on.</div>
         <div class="tools"><span class="tool">LangChain</span><span class="tool">Pydantic</span><span class="tool">Python</span><span class="tool">FastAPI</span></div>
       </article>
 
-      <article class="sys ord" style="--ai:3;--sde:6">
+      <article class="sys ord" style="--ai:4;--sde:7">
         <div class="sys-top"><h3>Prompt-and-response evaluation harness</h3><span class="out">~35 automated metrics</span></div>
         <p>A scoring system with roughly 35 automated metrics — faithfulness, relevance, context precision and the rest — wired into the platform's templates so quality is measured continuously rather than argued about after a release.</p>
         <div class="hard"><b>The hard part</b>An evaluation suite is only useful if it fails when quality actually drops. Choosing metrics that correlate with human judgement, rather than metrics that are easy to compute, is most of the work.</div>
         <div class="tools"><span class="tool">RAGAS</span><span class="tool">DeepEval</span><span class="tool">OpenEvals</span></div>
       </article>
 
-      <article class="sys ord" style="--ai:4;--sde:3">
+      <article class="sys ord" style="--ai:5;--sde:4">
         <div class="sys-top"><h3>Legal document analysis pipeline</h3><span class="out">−70% review time</span></div>
         <p>Automated section extraction, consolidation, clause-level comparison and generation of the modified document, turning contract review from a full read-through into a diff a lawyer confirms.</p>
         <div class="hard"><b>The hard part</b>Contracts are structured by convention, not by markup. Section boundaries have to be inferred, and a wrong boundary silently corrupts every comparison downstream of it.</div>
         <div class="tools"><span class="tool">Azure OpenAI</span><span class="tool">Python</span><span class="tool">RAG</span></div>
       </article>
 
-      <article class="sys ord" style="--ai:5;--sde:7">
+      <article class="sys ord" style="--ai:6;--sde:8">
         <div class="sys-top"><h3>Image-generation benchmarking framework</h3><span class="out">+25% cost / quality</span></div>
         <p>A harness that runs the same prompt across DALL·E 2 and 3, GPT-Image, Imagen, Gemini, Stable Diffusion, Bedrock Titan and Qwen, then compares cost against output quality so the platform picks a provider on evidence instead of habit.</p>
         <div class="hard"><b>The hard part</b>Seven vendors, seven request shapes, seven failure modes, and no shared quality metric. The framework had to normalise all of it before a comparison meant anything.</div>
         <div class="tools"><span class="tool">Azure OpenAI</span><span class="tool">Vertex AI</span><span class="tool">Stability AI</span><span class="tool">AWS Bedrock</span><span class="tool">Qwen</span></div>
       </article>
 
-      <article class="sys ord" style="--ai:7;--sde:5">
+      <article class="sys ord" style="--ai:8;--sde:6">
         <div class="sys-top"><h3>Multilingual speech pipeline</h3><span class="out">200+ languages</span></div>
         <p>Transcription, translation and retrieval over audio in more than 200 languages, built on OpenAI and Gemini speech services, so global compliance documentation is searchable no matter what language it was recorded in.</p>
         <div class="hard"><b>The hard part</b>Transcription errors compound through translation and then through retrieval. The pipeline had to be built so a low-confidence segment stays visible rather than quietly becoming a confident wrong answer.</div>
@@ -940,7 +947,7 @@ try { if (localStorage.getItem("uk-theme") === "light") document.documentElement
     <div class="stack rv">
       <div class="sgroup ord" style="--ai:1;--sde:5"><h4>LLM &amp; agent systems</h4><ul><li>LangChain</li><li>LangGraph</li><li>Agentic workflows</li><li>Structured output</li><li>Pydantic parsers</li><li>RAG</li><li>Prompt design</li></ul></div>
       <div class="sgroup ord" style="--ai:2;--sde:6"><h4>Evaluation &amp; quality</h4><ul><li>RAGAS</li><li>DeepEval</li><li>OpenEvals</li><li>LLM-as-judge</li><li>Regression harnesses</li></ul></div>
-      <div class="sgroup ord" style="--ai:3;--sde:7"><h4>Retrieval &amp; vectors</h4><ul><li>Azure AI Search</li><li>FAISS</li><li>ChromaDB</li><li>Hybrid search</li><li>Chunking strategy</li></ul></div>
+      <div class="sgroup ord" style="--ai:3;--sde:7"><h4>Retrieval &amp; ingestion</h4><ul><li>Weaviate</li><li>Azure AI Search</li><li>FAISS</li><li>ChromaDB</li><li>Hybrid search</li><li>Docling</li><li>RapidOCR</li><li>Chunking strategy</li></ul></div>
       <div class="sgroup ord" style="--ai:4;--sde:1"><h4>Backend &amp; APIs</h4><ul><li>Python</li><li>FastAPI</li><li>Flask</li><li>REST</li><li>WebSocket</li><li>OpenAPI / Swagger</li><li>async / await</li><li>SQLAlchemy 2</li></ul></div>
       <div class="sgroup ord" style="--ai:5;--sde:3"><h4>Data &amp; infrastructure</h4><ul><li>PostgreSQL</li><li>Redis</li><li>Alembic</li><li>Docker</li><li>Jenkins</li><li>Git</li></ul></div>
       <div class="sgroup ord" style="--ai:6;--sde:4"><h4>Observability</h4><ul><li>OpenTelemetry</li><li>Grafana</li><li>Trace propagation</li><li>Structured logging</li></ul></div>
@@ -996,11 +1003,11 @@ try { if (localStorage.getItem("uk-theme") === "light") document.documentElement
     </p>
 
     <div class="cta-row" style="margin-top:26px">
-      <a class="btn btn-primary t-ai" href="https://drive.google.com/file/d/1Ple1Ynuf_RNjOSS-rv_j_oUW29sbWuNP/view?usp=drive_link" target="_blank" rel="noopener">
+      <a class="btn btn-primary t-ai" href="https://drive.google.com/file/d/1OUbc-s1OfbJm6rQUU1QlEhLwSoFlauRX/view?usp=sharing" target="_blank" rel="noopener">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5H3.6A1.1 1.1 0 002.5 4.6v7.8a1.1 1.1 0 001.1 1.1h7.8a1.1 1.1 0 001.1-1.1V9"/><path d="M9.5 2.5h4v4"/><path d="M13.5 2.5L7.2 8.8"/></svg>
         Resume — GenAI track
       </a>
-      <a class="btn btn-primary t-sde" href="https://drive.google.com/file/d/1TYdbYRGOiUeZV8t3NwbZ468RQZOnOusK/view?usp=drive_link" target="_blank" rel="noopener">
+      <a class="btn btn-primary t-sde" href="https://drive.google.com/file/d/1BzWFLjNtzdim8K47_je5BZNMCD1-0ixX/view?usp=sharing" target="_blank" rel="noopener">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5H3.6A1.1 1.1 0 002.5 4.6v7.8a1.1 1.1 0 001.1 1.1h7.8a1.1 1.1 0 001.1-1.1V9"/><path d="M9.5 2.5h4v4"/><path d="M13.5 2.5L7.2 8.8"/></svg>
         Resume — SDE track
       </a>

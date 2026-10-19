@@ -2,7 +2,7 @@
 
 A single-page portfolio that reconfigures itself for whoever is reading it. A
 recruiter picks a track at the top — **AI / GenAI Engineer** or **SDE-I /
-SDE-II** — and the headline, the summary, the order of the seven TCS systems,
+SDE-II** — and the headline, the summary, the order of the eight TCS systems,
 the order of the engineering decisions, the stack groupings and the resume
 download all re-frame to match. Same facts, different emphasis, exactly like
 the two resume PDFs.
